@@ -1,0 +1,198 @@
+// import React from 'react';
+// import useAxiosSecure from '../../../hooks/useAxiosSecure';
+// import { useQuery } from '@tanstack/react-query';
+// // import useAuth from '../../../hooks/useAuth';
+
+// const ManageClass = () => {
+//     // const {user} = useAuth();
+//   const [axiosSecure] = useAxiosSecure();
+//   const { data: users = [], refetch } = useQuery(['classes'], async () => {
+//     const res = await axiosSecure.get('/classes');
+//     return res.data;
+//   });
+
+// //   const userEmail = user.email; 
+// //   const filteredUsers = users.filter(user => user.email === userEmail);
+
+
+//   return (
+//     <div className="w-full">
+//       <h3 className="text-3xl font-semibold my-4">Total Users: {users.length}</h3>
+//       <div className="overflow-x-auto">
+//         <table className="table table-zebra w-full">
+//           {/* head */}
+//           <thead>
+//             <tr>
+//               <th>#</th>
+//               <th>Class Name</th>
+//               <th>Instructor Name</th>
+//               <th>Instructor Email</th>
+//               <th>Available Seats</th>
+//               <th>Price</th>
+//               <th>Status</th>
+//               <th>Approve</th>
+//               <th>Deny</th>
+//               <th>Feedback</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {users.map((user, index) => (
+//               <tr key={user._id}>
+//                 <td>{index + 1}</td>
+//                 <td>{user.nameClass}</td>
+//                 <td>{user.instructorName}</td>
+//                 <td>{user.email}</td>
+//                 <td className='text-center'>{user.seats}</td>
+//                 <td className='text-center'>{user.price}</td>
+//                 <td className='text-primary'>Pending</td>
+//                 <td>
+//                   <button
+//                     onClick={() => handlePay(item)}
+//                     className="btn btn-sm btn-primary text-xs"
+//                   >
+//                     Approve
+//                   </button>
+//                 </td>
+//                 <td>
+//                   <button
+//                     onClick={() => handlePay(item)}
+//                     className="btn btn-sm btn-primary text-xs"
+//                   >
+//                     Deny
+//                   </button>
+//                 </td>
+//                 <td>
+//                   <button
+//                     onClick={() => handlePay(item)}
+//                     className="btn btn-sm btn-primary text-xs"
+//                   >
+//                     Send <br /> Feedback
+//                   </button>
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ManageClass;
+import React, { useState, useEffect } from 'react';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
+
+const ManageClass = () => {
+  const [axiosSecure] = useAxiosSecure();
+  const [classes, setClasses] = useState([]);
+
+  useEffect(() => {
+    fetchClasses();
+  }, []);
+
+  const fetchClasses = async () => {
+    try {
+      const res = await axiosSecure.get('/classes');
+      const updatedClasses = res.data.map(classItem => ({
+        ...classItem,
+        disabled: classItem.status === 'approved' || classItem.status === 'denied'
+      }));
+      setClasses(updatedClasses);
+    } catch (error) {
+      console.log('Error fetching classes:', error);
+    }
+  };
+
+  const handleApprove = async (classId, index) => {
+    try {
+      await axiosSecure.patch(`/classes/${classId}`, { status: 'approved' });
+      Swal.fire('Class Approved', '', 'success');
+      updateClassStatus(index, 'approved');
+    } catch (error) {
+      console.log('Error approving class:', error);
+    }
+  };
+
+  const handleDeny = async (classId, index) => {
+    try {
+      await axiosSecure.patch(`/classes/${classId}`, { status: 'denied' });
+      Swal.fire('Class Denied', '', 'success');
+      updateClassStatus(index, 'denied');
+    } catch (error) {
+      console.log('Error denying class:', error);
+    }
+  };
+
+  const updateClassStatus = (index, status) => {
+    setClasses(prevClasses => {
+      const updatedClasses = [...prevClasses];
+      updatedClasses[index].status = status;
+      updatedClasses[index].disabled = true;
+      return updatedClasses;
+    });
+  };
+
+  return (
+    <div className="w-full">
+      <h3 className="text-3xl font-semibold my-4">Total Classes: {classes.length}</h3>
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Class Name</th>
+              <th>Instructor Name</th>
+              <th>Instructor Email</th>
+              <th>Available Seats</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Approve</th>
+              <th>Deny</th>
+              <th>Feedback</th>
+            </tr>
+          </thead>
+          <tbody>
+            {classes.map((classItem, index) => (
+              <tr key={classItem._id}>
+                <td>{index + 1}</td>
+                <td>{classItem.nameClass}</td>
+                <td>{classItem.instructorName}</td>
+                <td>{classItem.email}</td>
+                <td className="text-center">{classItem.seats}</td>
+                <td className="text-center">{classItem.price}</td>
+                <td className="text-primary">{classItem.status}</td>
+                <td>
+                  <button
+                    onClick={() => handleApprove(classItem._id, index)}
+                    className="btn btn-sm btn-primary text-xs"
+                    disabled={classItem.disabled}
+                  >
+                    Approve
+                  </button>
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDeny(classItem._id, index)}
+                    className="btn btn-sm btn-primary text-xs"
+                    disabled={classItem.disabled}
+                  >
+                    Deny
+                  </button>
+                </td>
+                <td>
+                  <button className="btn btn-sm btn-primary text-xs">
+                    Send <br /> Feedback
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default ManageClass;
