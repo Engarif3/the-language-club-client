@@ -1,23 +1,60 @@
-// import React from 'react';
+// import React, { useState, useEffect } from 'react';
 // import useAxiosSecure from '../../../hooks/useAxiosSecure';
-// import { useQuery } from '@tanstack/react-query';
-// // import useAuth from '../../../hooks/useAuth';
+// import Swal from 'sweetalert2';
 
 // const ManageClass = () => {
-//     // const {user} = useAuth();
 //   const [axiosSecure] = useAxiosSecure();
-//   const { data: users = [], refetch } = useQuery(['classes'], async () => {
-//     const res = await axiosSecure.get('/classes');
-//     return res.data;
-//   });
+//   const [classes, setClasses] = useState([]);
 
-// //   const userEmail = user.email; 
-// //   const filteredUsers = users.filter(user => user.email === userEmail);
+//   useEffect(() => {
+//     fetchClasses();
+//   }, []);
 
+//   const fetchClasses = async () => {
+//     try {
+//       const res = await axiosSecure.get('/classes');
+//       const updatedClasses = res.data.map(classItem => ({
+//         ...classItem,
+//         disabled: classItem.status === 'approved' || classItem.status === 'denied'
+//       }));
+//       setClasses(updatedClasses);
+//     } catch (error) {
+//       console.log('Error fetching classes:', error);
+//     }
+//   };
+
+//   const handleApprove = async (classId, index) => {
+//     try {
+//       await axiosSecure.patch(`/classes/${classId}`, { status: 'approved' });
+//       Swal.fire('Class Approved', '', 'success');
+//       updateClassStatus(index, 'approved');
+//     } catch (error) {
+//       console.log('Error approving class:', error);
+//     }
+//   };
+
+//   const handleDeny = async (classId, index) => {
+//     try {
+//       await axiosSecure.patch(`/classes/${classId}`, { status: 'denied' });
+//       Swal.fire('Class Denied', '', 'success');
+//       updateClassStatus(index, 'denied');
+//     } catch (error) {
+//       console.log('Error denying class:', error);
+//     }
+//   };
+
+//   const updateClassStatus = (index, status) => {
+//     setClasses(prevClasses => {
+//       const updatedClasses = [...prevClasses];
+//       updatedClasses[index].status = status;
+//       updatedClasses[index].disabled = true;
+//       return updatedClasses;
+//     });
+//   };
 
 //   return (
 //     <div className="w-full">
-//       <h3 className="text-3xl font-semibold my-4">Total Users: {users.length}</h3>
+//       <h3 className="text-3xl font-semibold my-4">Total Classes: {classes.length}</h3>
 //       <div className="overflow-x-auto">
 //         <table className="table table-zebra w-full">
 //           {/* head */}
@@ -36,36 +73,35 @@
 //             </tr>
 //           </thead>
 //           <tbody>
-//             {users.map((user, index) => (
-//               <tr key={user._id}>
+//             {classes.map((classItem, index) => (
+//               <tr key={classItem._id}>
 //                 <td>{index + 1}</td>
-//                 <td>{user.nameClass}</td>
-//                 <td>{user.instructorName}</td>
-//                 <td>{user.email}</td>
-//                 <td className='text-center'>{user.seats}</td>
-//                 <td className='text-center'>{user.price}</td>
-//                 <td className='text-primary'>Pending</td>
+//                 <td>{classItem.nameClass}</td>
+//                 <td>{classItem.instructorName}</td>
+//                 <td>{classItem.email}</td>
+//                 <td className="text-center">{classItem.seats}</td>
+//                 <td className="text-center">{classItem.price}</td>
+//                 <td className="text-primary">{classItem.status}</td>
 //                 <td>
 //                   <button
-//                     onClick={() => handlePay(item)}
+//                     onClick={() => handleApprove(classItem._id, index)}
 //                     className="btn btn-sm btn-primary text-xs"
+//                     disabled={classItem.disabled}
 //                   >
 //                     Approve
 //                   </button>
 //                 </td>
 //                 <td>
 //                   <button
-//                     onClick={() => handlePay(item)}
+//                     onClick={() => handleDeny(classItem._id, index)}
 //                     className="btn btn-sm btn-primary text-xs"
+//                     disabled={classItem.disabled}
 //                   >
 //                     Deny
 //                   </button>
 //                 </td>
 //                 <td>
-//                   <button
-//                     onClick={() => handlePay(item)}
-//                     className="btn btn-sm btn-primary text-xs"
-//                   >
+//                   <button className="btn btn-sm btn-primary text-xs">
 //                     Send <br /> Feedback
 //                   </button>
 //                 </td>
@@ -79,6 +115,7 @@
 // };
 
 // export default ManageClass;
+
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
@@ -94,9 +131,9 @@ const ManageClass = () => {
   const fetchClasses = async () => {
     try {
       const res = await axiosSecure.get('/classes');
-      const updatedClasses = res.data.map(classItem => ({
+      const updatedClasses = res.data.map((classItem) => ({
         ...classItem,
-        disabled: classItem.status === 'approved' || classItem.status === 'denied'
+        disabled: classItem.status === 'approved' || classItem.status === 'denied',
       }));
       setClasses(updatedClasses);
     } catch (error) {
@@ -125,7 +162,7 @@ const ManageClass = () => {
   };
 
   const updateClassStatus = (index, status) => {
-    setClasses(prevClasses => {
+    setClasses((prevClasses) => {
       const updatedClasses = [...prevClasses];
       updatedClasses[index].status = status;
       updatedClasses[index].disabled = true;
@@ -133,11 +170,38 @@ const ManageClass = () => {
     });
   };
 
+  const handleSendFeedback = async (classId, index) => {
+    try {
+      const { value: feedback } = await Swal.fire({
+        title: 'Send Feedback',
+        input: 'textarea',
+        inputPlaceholder: 'Enter your feedback here...',
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        cancelButtonText: 'Cancel',
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Please enter your feedback';
+          }
+        },
+      });
+  
+      if (feedback) {
+        // Update the class with the feedback only
+        await axiosSecure.patch(`/classes/${classId}`, { feedback });
+        Swal.fire('Feedback Sent', '', 'success');
+      }
+    } catch (error) {
+      console.log('Error sending feedback:', error);
+    }
+  };
+  
+
   return (
     <div className="w-full">
       <h3 className="text-3xl font-semibold my-4">Total Classes: {classes.length}</h3>
       <div className="overflow-x-auto">
-        <table className="table table-zebra w-full">
+        <table className="w-full">
           {/* head */}
           <thead>
             <tr>
@@ -182,8 +246,12 @@ const ManageClass = () => {
                   </button>
                 </td>
                 <td>
-                  <button className="btn btn-sm btn-primary text-xs">
-                    Send <br /> Feedback
+                  <button
+                    onClick={() => handleSendFeedback(classItem._id, index)}
+                    className="btn btn-sm btn-primary text-xs"
+                    // disabled={classItem.disabled}
+                  >
+                    Send Feedback
                   </button>
                 </td>
               </tr>
@@ -196,3 +264,4 @@ const ManageClass = () => {
 };
 
 export default ManageClass;
+

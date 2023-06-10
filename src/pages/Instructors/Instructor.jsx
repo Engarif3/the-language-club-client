@@ -11,7 +11,7 @@ const Instructor = ({instructor}) => {
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure>
             <img
-            // TODO: showing image is user image, have to show instructor image
+             className="h-56 object-cover"
              src={photo}
               alt="Instructor Image"
             />
