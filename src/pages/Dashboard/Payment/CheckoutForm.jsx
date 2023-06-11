@@ -85,15 +85,16 @@ const CheckoutForm = ({price }) => {
                 // quantity: cart.length,
                 // cartItems: cart.map(item => item._id),
                 // menuItems: cart.map(item => item.menuItemId),
-                // status: 'service pending',
+                status: 'paid',
                 // itemNames: cart.map(item => item.name)
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
-                    console.log(res.data);
-                    if (res.data.result.insertedId) {
-                        // display confirm
-                    }
+                    console.log(res.data); 
+                    // 5 Hrs 16 min 39 s
+                    // if (res.data.result.insertedId) {
+                    //     // display confirm
+                    // }
                 })
         }
 
@@ -120,7 +121,7 @@ const CheckoutForm = ({price }) => {
                     }}
                 />
                 <button className="btn btn-primary btn-sm mt-4" type="submit" 
-                // disabled={!stripe || !clientSecret || processing}
+                disabled={!stripe || !clientSecret || processing}
                 >
                     Pay
                 </button>
