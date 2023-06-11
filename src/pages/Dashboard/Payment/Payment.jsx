@@ -33,7 +33,6 @@ const Payment = () => {
   const searchParams = new URLSearchParams(location.search);
   const priceString = searchParams.get("price");
   const price = parseFloat(priceString);
-  console.log(typeof(price))
 
   return (
     <div>

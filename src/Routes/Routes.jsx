@@ -72,10 +72,6 @@ import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasse
           path: 'my-enrolled-classes',
           element: <MyEnrolledClasses></MyEnrolledClasses>
         },
-        // {
-        //   path: 'mycart', 
-        //   element: <MyCart></MyCart>
-        // },
         {
         path:'payment',
         element: <Payment></Payment>,
