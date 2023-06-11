@@ -2,6 +2,8 @@ import React from "react";
 
 const Lesson = ({item}) => {
   const {seats, nameClass, classImage, price} = item;
+  // const {photo} = usersData;
+
   return (
     <div>
        

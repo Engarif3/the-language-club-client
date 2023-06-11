@@ -12,11 +12,14 @@ const Course = ({ course }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const { classImage, nameClass, instructorName, instructorEmail, seats, price } = course;
+  console.log(course)
+
+  const { classImage, nameClass, instructorName, email, seats, price } = course;
+  // console.log(instructorEmail)
 
   const handleSelect = () => {
     if (user) {
-      const saveBookings = { courseName: nameClass, instructorName: instructorName, email: instructorEmail, seats: seats, price: price, user: user.email };
+      const saveBookings = { courseName: nameClass, instructorName: instructorName, email: email, seats: seats, price: price, user: user.email };
       fetch("http://localhost:5000/bookings", {
         method: "POST",
         headers: {

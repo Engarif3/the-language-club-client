@@ -1,9 +1,11 @@
 import React from "react";
 
 
-const PopularInstructor = ({item}) => {
+const PopularInstructor = ({userData,item}) => {
   
-  const {studentCount, instructorName, classImage, seats} = item;
+  const {studentCount, instructorName, classImage, seats, email} = item;
+  const {photo} = userData;
+
   return (
     <div>
        
@@ -11,12 +13,13 @@ const PopularInstructor = ({item}) => {
         <figure>
           <img
             className="h-56 object-cover"
-            src={classImage}
+            src={photo}
             alt="Shoes"
           />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{instructorName}</h2>
+          <p>Email: {email}</p>
           <p>No of Students: {seats}</p>
           
           {/* <div className="card-actions justify-end">

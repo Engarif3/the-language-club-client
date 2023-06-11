@@ -187,14 +187,21 @@ const ManageClass = () => {
       });
   
       if (feedback) {
-        // Update the class with the feedback only
-        await axiosSecure.patch(`/classes/${classId}`, { feedback });
+        const classToUpdate = classes[index];
+        const updatedClass = { ...classToUpdate, feedback };
+  
+        const updatedClasses = [...classes];
+        updatedClasses[index] = updatedClass;
+        setClasses(updatedClasses);
+  
+        await axiosSecure.patch(`/classes/${classId}`, { ...updatedClass });
         Swal.fire('Feedback Sent', '', 'success');
       }
     } catch (error) {
       console.log('Error sending feedback:', error);
     }
   };
+  
   
 
   return (
@@ -206,6 +213,7 @@ const ManageClass = () => {
           <thead>
             <tr>
               <th>#</th>
+              <th>Photo</th>
               <th>Class Name</th>
               <th>Instructor Name</th>
               <th>Instructor Email</th>
@@ -221,6 +229,7 @@ const ManageClass = () => {
             {classes.map((classItem, index) => (
               <tr key={classItem._id}>
                 <td>{index + 1}</td>
+                <td><img className='w-8 h-8 ml-2' src={classItem.classImage} alt="" /></td>
                 <td>{classItem.nameClass}</td>
                 <td>{classItem.instructorName}</td>
                 <td>{classItem.email}</td>

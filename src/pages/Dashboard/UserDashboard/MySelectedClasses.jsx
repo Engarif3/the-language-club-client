@@ -72,7 +72,7 @@ const filteredUsers = bookings.filter(user => user.user === userEmail);
             {filteredUsers.map((booking, index) => (
               <tr key={booking._id}>
                 <td>{index + 1}</td>
-                <td>{booking.nameClass}</td>
+                <td>{booking.courseName}</td>
                 <td>{booking.instructorName}</td>
                 <td>{booking.email}</td>
                 <td className="text-center">{booking.seats}</td>
