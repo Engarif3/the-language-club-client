@@ -22,6 +22,7 @@ import ManageUsers from "../pages/Dashboard/AdminDashboard/ManageUsers";
 import UserHome from "../pages/Dashboard/UserDashboard/UserHome";
 import MySelectedClasses from "../pages/Dashboard/UserDashboard/MySelectedClasses";
 import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasses";
+import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory";
 
 
 
@@ -71,6 +72,10 @@ import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasse
         {
           path: 'my-enrolled-classes',
           element: <MyEnrolledClasses></MyEnrolledClasses>
+        },
+        {
+          path: 'payment-history',
+          element: <PaymentHistory></PaymentHistory>
         },
         {
         path:'payment',

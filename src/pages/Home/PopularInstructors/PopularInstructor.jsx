@@ -13,7 +13,7 @@ const PopularInstructor = ({userData,item}) => {
         <figure>
           <img
             className="h-56 object-cover"
-            src={photo}
+            src={photo? photo: ""}
             alt="Shoes"
           />
         </figure>
