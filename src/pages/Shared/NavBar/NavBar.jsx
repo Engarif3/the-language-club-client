@@ -42,7 +42,7 @@ const NavBar = () => {
             )}
         
             {!user && ( 
-                <li><Link to="/login" > <btn className="btn btn-primary">Login</btn> </Link></li>
+                <li><Link to="/login" > <button className="btn btn-primary">Login</button> </Link></li>
             )}
         </>
     );

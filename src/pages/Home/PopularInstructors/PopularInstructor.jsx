@@ -21,10 +21,6 @@ const PopularInstructor = ({userData,item}) => {
           <h2 className="card-title">{instructorName}</h2>
           <p>Email: {email}</p>
           <p>No of Students: {seats}</p>
-          
-          {/* <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div> */}
         </div>
       </div>
     </div>
