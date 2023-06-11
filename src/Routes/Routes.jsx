@@ -78,8 +78,10 @@ import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasse
         // },
         {
         path:'payment',
-        element: <Payment></Payment>
+        element: <Payment></Payment>,
         },
+
+        
         //Instructor routes
         {
           path: 'instructorhome',

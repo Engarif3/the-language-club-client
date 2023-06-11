@@ -12,8 +12,6 @@ const Course = ({ course }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  console.log(course)
-
   const { classImage, nameClass, instructorName, email, seats, price } = course;
   // console.log(instructorEmail)
 
