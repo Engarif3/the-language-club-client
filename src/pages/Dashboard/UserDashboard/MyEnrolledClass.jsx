@@ -1,11 +1,9 @@
 import React from "react";
-import SweetAlert from "sweetalert2";
-// import useAuth from '../../hooks/useAuth';
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+
 
 const MyEnrolledClass = ({ paidClass }) => {
-  //   const { user } = useAuth();
+
   const navigate = useNavigate();
 
   const {
@@ -20,7 +18,7 @@ const MyEnrolledClass = ({ paidClass }) => {
   return (
     <div>
       <div>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-76 bg-base-100 shadow-xl">
           <figure>
             <img
               className="h-56 object-cover"
