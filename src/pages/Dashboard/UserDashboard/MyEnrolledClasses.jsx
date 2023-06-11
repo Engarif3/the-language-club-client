@@ -1,20 +1,25 @@
 import { Helmet } from 'react-helmet-async';
-// import useAuth from '../../hooks/useAuth';
+
 import { useQuery } from '@tanstack/react-query';
 import MyEnrolledClass from './MyEnrolledClass';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useAuth from '../../../hooks/useAuth';
 
 
 const MyEnrolledClasses = () => {
    
     
-//   const {user} = useAuth();
+const {user} = useAuth();
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(['payments'], async () => {
     const res = await axiosSecure.get('/payments');
     return res.data;
   });
-  const paidClasses = users.filter(user => user.status === "paid")
+//   const paidClasses = users.filter(user => user.status === "paid")
+const userEmail = user.email;
+const paidClasses = users.filter(
+  (payment) => payment.email === userEmail
+);
     return (
         <div className='mb-12'>
             <Helmet>
