@@ -61,7 +61,7 @@ const PopularInstructors = () => {
   return (
     <section>
       <h2 className="text-5xl text-center">Popular Instructors</h2>
-      <div className="grid md:grid-cols-3 gap-8 mx-auto p-12">
+      <div className="grid md:grid-cols-3 gap-8 mx-auto md:p-12">
         {lessons.slice(0, 6).map((lesson, index) => {
           const user = users[index];
           return (

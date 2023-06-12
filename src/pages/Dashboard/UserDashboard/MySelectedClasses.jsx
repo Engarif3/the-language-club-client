@@ -67,7 +67,7 @@ const MySelectedClasses = () => {
                 <td>{booking.instructorName}</td>
                 <td>{booking.email}</td>
                 <td className="text-center">{booking.seats}</td>
-                <td className="text-center">{booking.price}</td>
+                <td className="text-center">${booking.price}</td>
                 <td>
                 <Link
                     to={`/dashboard/payment?price=${booking.price}&courseName=${booking.courseName}&instructorName=${booking.instructorName}&email=${booking.email}&id=${booking._id}`}

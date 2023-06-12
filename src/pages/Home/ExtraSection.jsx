@@ -19,7 +19,7 @@ const ExtraSection = () => {
   return (
     <div>
       <h2 className="text-5xl text-center">What do we offer?</h2>
-      <div className="my-10 flex justify-center items-center gap-8">
+      <div className="my-10 md:flex justify-center items-center gap-8">
         <div className="mx-auto text-3xl">
           <Fade cascade damping={0.4}>
             <p className="text-orange-600">We Offer...</p>

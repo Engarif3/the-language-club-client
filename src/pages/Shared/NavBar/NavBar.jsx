@@ -36,7 +36,7 @@ const NavBar = () => {
                     <button className="btn btn-circle my-4">
                 <img className="w-10 h-10 rounded-full" src={user.photoURL} alt="" />
               </button>
-                    <button onClick={handleLogOut} className="btn bg-fuchsia-900 my-4">LogOut</button>
+                    <button onClick={handleLogOut} className="btn bg-fuchsia-900 md:my-4">LogOut</button>
                     
                 </div>
             )}
@@ -49,7 +49,7 @@ const NavBar = () => {
 
     return (
         <>
-            <div className="navbar bg-blue-950 text-white -my-4 -py-2">
+            <div className="navbar bg-blue-950 text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
