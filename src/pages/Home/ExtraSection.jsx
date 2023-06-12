@@ -1,36 +1,90 @@
-import React, {useState } from 'react';
-import { motion, AnimatePresence } from "framer-motion"
-import useAxiosSecure from '../../hooks/useAxiosSecure';
-import { useQuery } from '@tanstack/react-query';
-// import img1 from "../../assets/home/03.png"
+import React, { useEffect } from "react";
+import { Fade } from "react-awesome-reveal";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import pointer from "../../assets/home/pointer.gif";
+import img1 from "../../assets/home/lang1.jpg";
+import img2 from "../../assets/home/lang2.jpg";
+import img3 from "../../assets/home/lang3.jpg";
+import img4 from "../../assets/home/lang4.jpg";
+
+
 
 const ExtraSection = () => {
-    const [selectedId, setSelectedId] = useState(null);
-    const [axiosSecure] = useAxiosSecure();
-    const { data: items = [], refetch } = useQuery(['classes'], async () => {
-      const res = await axiosSecure.get('/classes');
-      return res.data;
+  useEffect(() => {
+    AOS.init({
+      // Configuration options
     });
-    return (
-       <div>
-        {items.map(item => (
-  <motion.div layoutId={item._id} onClick={() => setSelectedId(item.id)}>
-    <motion.h5>{item.nameClass}</motion.h5>
-    <motion.h2>{item.instructorName}</motion.h2>
-  </motion.div>
-))}
-
-<AnimatePresence>
-  {selectedId && (
-    <motion.div layoutId={selectedId}>
-      <motion.h5>{item.nameClass}</motion.h5>
-      <motion.h2>{item.instructorName}</motion.h2>
-      <motion.button onClick={() => setSelectedId(null)} />
-    </motion.div>
-  )}
-</AnimatePresence>
-       </div>
-    );
+  }, []);
+  return (
+    <div>
+      <h2 className="text-5xl text-center">What do we offer?</h2>
+      <div className="my-10 flex justify-center items-center gap-8">
+        <div className="mx-auto text-3xl">
+          <Fade cascade damping={0.4}>
+            <p className="text-orange-600">We Offer...</p>
+            <p className="ml-8 text-blue-800">More than 15 Foreign Languages...</p>
+            <p className="ml-16 text-fuchsia-700">Join Our Club...</p>
+            <p className="ml-24 text-slate-600">Explore the World of Language...</p>
+            <div className=" flex justify-end">
+            <img className="w-16 " src={pointer} alt="" />
+            </div>
+          </Fade>
+        </div>
+        <div className=" grid md:grid-cols-2 gap-4 p-4 justify-center">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            className="m-auto border-lg"
+          >
+            <img
+              className="cover w-80 h-56"
+              src={img1}
+              alt=""
+              style={{ borderRadius: "15px 15px" }}
+            />
+          </div>
+          <div
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+            className="m-auto border-lg"
+          >
+            <img
+              className="cover w-80 h-56"
+              src={img2}
+              alt=""
+              style={{ borderRadius: "15px 15px" }}
+            />
+          </div>
+          <div
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            className="m-auto border-lg"
+          >
+            <img
+              className="cover w-80 h-56"
+              src={img3}
+              alt=""
+              style={{ borderRadius: "15px 15px" }}
+            />
+          </div>
+          <div
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            className="m-auto border-lg"
+          >
+            <img
+              className="cover w-80 h-56"
+              src={img4}
+              alt=""
+              style={{ borderRadius: "15px 15px" }}
+            />
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ExtraSection;
