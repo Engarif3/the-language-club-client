@@ -1,6 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaWallet, FaCalendarAlt, FaHome,  FaUsers, FaBook } from 'react-icons/fa';
-import useCart from "../hooks/useCart";
 import useAdmin from "../hooks/useAdmin";
 import NavBar from "../pages/Shared/NavBar/NavBar";
 import Footer from "../pages/Shared/Footer/Footer";
