@@ -89,6 +89,12 @@ const CheckoutForm = ({ booking }) => {
         .then(res => {
           console.log(res.data);
         });
+        axiosSecure.delete(`/bookings/${booking.id}`).then((res) => {
+            if (res.data.deletedCount > 0) {
+            //   refetch();
+            //   Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
     }
   };
 

@@ -70,7 +70,7 @@ const MySelectedClasses = () => {
                 <td className="text-center">{booking.price}</td>
                 <td>
                 <Link
-                    to={`/dashboard/payment?price=${booking.price}&courseName=${booking.courseName}&instructorName=${booking.instructorName}&email=${booking.email}`}
+                    to={`/dashboard/payment?price=${booking.price}&courseName=${booking.courseName}&instructorName=${booking.instructorName}&email=${booking.email}&id=${booking._id}`}
                   >
                     <button className="btn btn-warning btn-sm">PAY</button>
                   </Link>

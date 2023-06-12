@@ -15,14 +15,16 @@ const Payment = () => {
   const courseName = searchParams.get("courseName");
   const instructorName = searchParams.get("instructorName");
   const email = searchParams.get("email");
+  const id = searchParams.get("id");
 
   const booking = {
     price,
     courseName,
     instructorName,
-    email
+    email,
+    id
   };
-console.log(courseName)
+// console.log(id)
   return (
     <div>
       <h2 className="text-center text-2xl mt-4">Please provide your card details</h2>
