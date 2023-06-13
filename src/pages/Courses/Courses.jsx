@@ -22,7 +22,7 @@ const Courses = () => {
                 <title>The Language Club | Classes</title>
             </Helmet>
             <h2 className='text-5xl text-center py-12'>All Classes</h2>
-            <div className='grid grid-cols-3 gap-8 px-12'>
+            <div className='grid md:grid-cols-3 gap-8 px-12'>
             {
                 instructorUsers.map(course => <Course key={course._id} course={course} ></Course> )
             }
