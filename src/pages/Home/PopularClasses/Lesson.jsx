@@ -16,7 +16,7 @@ const Lesson = ({ course }) => {
           <div className="card-body">
             <h2 className="card-title">Course Name: {nameClass}</h2>
             <p>Instructor Name: {instructorName}</p>
-            <p>Available Seats: {seats}</p>
+            <p>Students: {seats}</p>
             <p>Price: ${price}</p>
           </div>
         </div>

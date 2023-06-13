@@ -20,7 +20,7 @@ const PopularInstructor = ({item}) => {
         <div className="card-body">
           <h2 className="card-title">{instructorName}</h2>
           <p>Email: {instructorEmail}</p>
-          <p>No of Students: {seats}</p>
+          <p>Students: {seats}</p>
         </div>
       </div>
     </div>
