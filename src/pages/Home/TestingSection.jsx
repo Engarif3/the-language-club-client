@@ -1,21 +1,35 @@
+
 import React from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import TestingSubSection from './TestingSubSection';
 
 const TestingSection = () => {
-    const [axiosSecure] = useAxiosSecure();
-  const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const res = await axiosSecure.get('/users');
+  const [axiosSecure] = useAxiosSecure();
+  const { data: users = [], refetch } = useQuery(['combinedData'], async () => {
+    const res = await axiosSecure.get('/combinedData');
     return res.data;
   });
-    return (
-        <div >
-            <h2 className='text-center text-3xl'>Just for Testing</h2>
-            <div className='grid grid-cols-3 gap-3'>
-            {users.map(user => <p key={user._id}><img className='w-56 h-56' src={user.photo} alt="" /></p> )}
-        </div>
-        </div>
-    );
+
+  // Filter users by email to remove duplicates
+  const uniqueEmails = [...new Set(users.map(user => user.instructorEmail))];
+  const filteredUsers = uniqueEmails.map(email =>
+    users.find(user => user.instructorEmail === email)
+  );
+
+  // Sort users based on seats number
+  const sortedUsers = filteredUsers.sort((a, b) => b.seats - a.seats);
+
+  console.log(sortedUsers);
+  return (
+    <div>
+      <div className='grid md:grid-cols-3 gap-8 mx-auto md:p-12'>
+        {sortedUsers.slice(0, 6).map((item) => (
+          <TestingSubSection key={item._id} item={item} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default TestingSection;
