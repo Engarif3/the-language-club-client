@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaWallet, FaCalendarAlt, FaHome,  FaUsers, FaBook } from 'react-icons/fa';
+import { FaWallet, FaCalendarAlt, FaHome,  FaUsers, FaBook, FaUserGraduate, FaRegEnvelope } from 'react-icons/fa';
 import useAdmin from "../hooks/useAdmin";
 import NavBar from "../pages/Shared/NavBar/NavBar";
 import Footer from "../pages/Shared/Footer/Footer";
@@ -35,9 +35,9 @@ const Dashboard = () => {
                         </> : isInstructor? <>
                             <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
                             <li><NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Class</NavLink></li>
-                            <li><NavLink to="/dashboard/myclass"><FaCalendarAlt></FaCalendarAlt> My Class</NavLink></li>
-                            <li><NavLink to="/dashboard/enrolled-students"><FaCalendarAlt></FaCalendarAlt> Total Enrolled Students</NavLink></li>
-                            <li><NavLink to="/dashboard/feedback"><FaCalendarAlt></FaCalendarAlt> Feedback from Admin</NavLink></li>
+                            <li><NavLink to="/dashboard/myclass"><FaBook></FaBook> My Class</NavLink></li>
+                            <li><NavLink to="/dashboard/enrolled-students"><FaUserGraduate></FaUserGraduate> Total Enrolled Students</NavLink></li>
+                            <li><NavLink to="/dashboard/feedback"><FaRegEnvelope></FaRegEnvelope> Feedback from Admin</NavLink></li>
     
                         </> : <>
                             <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> Student Home</NavLink></li>
