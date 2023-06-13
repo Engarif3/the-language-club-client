@@ -5,8 +5,11 @@ import { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import './CheckoutForm.css';
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({ booking }) => {
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -20,7 +23,6 @@ const CheckoutForm = ({ booking }) => {
     if (booking.price > 0) {
       axiosSecure.post('/create-payment-intent', { price: booking.price })
         .then(res => {
-          console.log(res.data.clientSecret);
           setClientSecret(res.data.clientSecret);
         });
     }
@@ -44,7 +46,6 @@ const CheckoutForm = ({ booking }) => {
     });
 
     if (error) {
-      console.log('error', error);
       setCardError(error.message);
     } else {
       setCardError('');
@@ -95,6 +96,8 @@ const CheckoutForm = ({ booking }) => {
             //   Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
+          Swal.fire("Payment successful");
+          navigate("/dashboard/myclass")
     }
   };
 

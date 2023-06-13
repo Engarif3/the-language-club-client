@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
  
-// import img4 from '../../../assets/home/04.jpg';
+
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
