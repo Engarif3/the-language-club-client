@@ -55,9 +55,9 @@ const Course = ({ course }) => {
   return (
     <div>
       <div>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card bg-base-100 shadow-xl">
           <figure>
-            <img className="h-56 object-cover" src={classImage} alt="Instructor Image" />
+            <img className="h-80 w-11/12 rounded-lg cover m-4" src={classImage} alt="Instructor Image" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Course Name: {nameClass}</h2>
