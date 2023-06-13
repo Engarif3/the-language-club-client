@@ -16,11 +16,10 @@ const PopularInstructors = () => {
   const filteredUsers = uniqueEmails.map(email =>
     users.find(user => user.instructorEmail === email)
   );
+  
 
   // Sort users based on seats number
   const sortedUsers = filteredUsers.sort((a, b) => b.seats - a.seats);
-
-  console.log(sortedUsers);
   return (
     <div>
       <h2 className="text-5xl text-center mt-12">Popular Instructors</h2>

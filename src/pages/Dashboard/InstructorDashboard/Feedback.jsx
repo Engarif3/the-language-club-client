@@ -12,10 +12,12 @@ const Feedback = () => {
   //   const paidClasses = users.filter(user => user.status === "paid")
   const userEmail = user.email;
   const paidClasses = users.filter((payment) => payment.email === userEmail);
+  const feedbacks = paidClasses.filter((feedback) => feedback.feedback !== null);
+  
     return (
         <div>
-            <h2 className="text-5xl text-center my-10">No of Feedback from Admin: {paidClasses.length}</h2>
-            {paidClasses.map(paid => <li className="text-2xl ml-10" key={paid._id}>{paid.feedback}</li> )}
+            <h2 className="text-5xl text-center my-10">No of Feedback from Admin: {feedbacks?.length}</h2>
+            {feedbacks.map(paid => <li className="text-2xl ml-10" key={paid._id}>{paid.feedback}</li> )}
         </div>
     );
 };
