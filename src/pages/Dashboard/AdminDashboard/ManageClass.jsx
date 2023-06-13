@@ -234,7 +234,7 @@ const ManageClass = () => {
                 <td>{classItem.instructorName}</td>
                 <td>{classItem.email}</td>
                 <td className="text-center">{classItem.seats}</td>
-                <td className="text-center">{classItem.price}</td>
+                <td className="text-center">${classItem.price}</td>
                 <td className="text-primary">{classItem.status}</td>
                 <td>
                   <button
