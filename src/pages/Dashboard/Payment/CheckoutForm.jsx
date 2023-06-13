@@ -88,7 +88,7 @@ const CheckoutForm = ({ booking }) => {
 
       axiosSecure.post('/payments', payment)
         .then(res => {
-          console.log(res.data);
+          // console.log(res.data);
         });
         axiosSecure.delete(`/bookings/${booking.id}`).then((res) => {
             if (res.data.deletedCount > 0) {

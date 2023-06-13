@@ -31,7 +31,7 @@ const Course = ({ course }) => {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "This class is booked Successfully",
+              title: "This class is selected Successfully",
               showConfirmButton: false,
               timer: 1500,
             });
