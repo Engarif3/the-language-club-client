@@ -22,7 +22,7 @@ const {user} = useAuth();
       price: parseFloat(data.price),
       status:"pending"
     };
-    fetch("http://localhost:5000/classes", {
+    fetch("https://assignment-12-server-woad.vercel.app/classes", {
       method: "POST",
       headers: {
         "content-type": "application/json",
