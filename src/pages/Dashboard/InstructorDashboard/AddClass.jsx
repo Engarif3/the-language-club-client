@@ -21,7 +21,7 @@ const {user} = useAuth();
       seats: parseFloat(data.seats),
       price: parseFloat(data.price),
     };
-    fetch("https://assignment-12-server-engarif3.vercel.app/classes", {
+    fetch("http://localhost:5000/classes", {
       method: "POST",
       headers: {
         "content-type": "application/json",

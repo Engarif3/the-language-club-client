@@ -18,7 +18,7 @@ const Course = ({ course }) => {
   const handleSelect = () => {
     if (user) {
       const saveBookings = { courseName: nameClass, instructorName: instructorName, email: email, seats: seats, price: price, user: user.email };
-      fetch("https://assignment-12-server-engarif3.vercel.app/bookings", {
+      fetch("http://localhost:5000/bookings", {
         method: "POST",
         headers: {
           "content-type": "application/json",

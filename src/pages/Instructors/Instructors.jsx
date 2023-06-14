@@ -6,7 +6,7 @@ const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
 
   useEffect(() => {
-    fetch("https://assignment-12-server-engarif3.vercel.app/users")
+    fetch("http://localhost:5000/users")
       .then(res => res.json())
       .then(data => {
         const filteredInstructors = data.filter(user => user.role === "instructor");

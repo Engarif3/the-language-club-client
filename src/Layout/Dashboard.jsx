@@ -35,9 +35,9 @@ const Dashboard = () => {
                         </> : isInstructor? <>
                             <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
                             <li><NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Class</NavLink></li>
-                            <li><NavLink to="/dashboard/myclass"><FaBook></FaBook> My Class</NavLink></li>
-                            <li><NavLink to="/dashboard/enrolled-students"><FaUserGraduate></FaUserGraduate> Total Enrolled Students</NavLink></li>
-                            <li><NavLink to="/dashboard/feedback"><FaRegEnvelope></FaRegEnvelope> Feedback from Admin</NavLink></li>
+                            <li><NavLink to="/dashboard/myclass"><FaBook></FaBook> My Classes</NavLink></li>
+                            {/* <li><NavLink to="/dashboard/enrolled-students"><FaUserGraduate></FaUserGraduate> Total Enrolled Students</NavLink></li>
+                            <li><NavLink to="/dashboard/feedback"><FaRegEnvelope></FaRegEnvelope> Feedback from Admin</NavLink></li> */}
     
                         </> : <>
                             <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> Student Home</NavLink></li>

@@ -23,6 +23,7 @@ import UserHome from "../pages/Dashboard/UserDashboard/UserHome";
 import MySelectedClasses from "../pages/Dashboard/UserDashboard/MySelectedClasses";
 import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasses";
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory";
+import UpdateClass from "../pages/Dashboard/InstructorDashboard/UpdateClass";
 
 
 
@@ -101,8 +102,12 @@ import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory";
           element: <EnrolledStudents></EnrolledStudents>
         },
         {
-          path: 'feedback',
+          path: 'feedback/:id',
           element: <Feedback></Feedback>
+        },
+        {
+          path: 'update-class/:id',
+          element: <UpdateClass></UpdateClass>
         },
       
         // admin routes
