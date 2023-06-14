@@ -1,4 +1,5 @@
 
+
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -60,12 +61,12 @@ const CheckoutForm = ({ booking }) => {
           card: card,
           billing_details: {
             email: user?.email || 'unknown',
-            name: user?.displayName || 'anonymous'
+            name: user?.displayName || 'anonymous',
+        
           },
         },
       },
     );
-
     if (confirmError) {
       console.log(confirmError);
     }
@@ -77,6 +78,7 @@ const CheckoutForm = ({ booking }) => {
       // save payment information to the server
       const payment = {
         email: user?.email,
+        studentName: user?.displayName,
         transactionId: paymentIntent.id,
         price: price,
         date: new Date(),
@@ -85,6 +87,8 @@ const CheckoutForm = ({ booking }) => {
         instructorEmail: email,
         status: 'paid',
       };
+
+      console.log(user.displayName)
 
       axiosSecure.post('/payments', payment)
         .then(res => {
@@ -96,6 +100,7 @@ const CheckoutForm = ({ booking }) => {
             //   Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
+          
           Swal.fire("Payment successful");
           navigate("/dashboard/myclass")
     }

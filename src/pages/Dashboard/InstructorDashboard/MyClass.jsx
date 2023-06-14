@@ -109,7 +109,7 @@ const MyClass = () => {
                 <td>{user.instructorName}</td>
                 <td>{user.email}</td>
                 <td className="text-center">{user.seats}</td>
-                <td className="text-center">{user.price}</td>
+                <td className="text-center">${user.price}</td>
                 <td className="text-primary">{user.status ? user.status : 'pending'}</td>
                 <td className="flex justify-center">
                   <Link className="text-orange-700 text-2xl" to="/dashboard/enrolled-students">
