@@ -1,8 +1,7 @@
 ## Project features
 
 ## The Language Club
-
-- 
+ 
 - The server for this project is created by express js.
 - This  project has 3 roles - student, instructor and admin.
 - When a user register his role is by default a student.

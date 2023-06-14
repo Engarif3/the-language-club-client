@@ -20,6 +20,7 @@ const {user} = useAuth();
       email: data.instructorEmail,
       seats: parseFloat(data.seats),
       price: parseFloat(data.price),
+      status:"pending"
     };
     fetch("http://localhost:5000/classes", {
       method: "POST",
