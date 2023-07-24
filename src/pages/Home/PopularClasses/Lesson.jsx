@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from '../../../Container';
 
 
 const Lesson = ({ course }) => {
@@ -7,7 +8,7 @@ const Lesson = ({ course }) => {
   // console.log(instructorEmail)
 
   return (
-    <div>
+    <Container>
       <div>
         <div className="card bg-base-100 shadow-xl">
           <figure>
@@ -21,7 +22,7 @@ const Lesson = ({ course }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

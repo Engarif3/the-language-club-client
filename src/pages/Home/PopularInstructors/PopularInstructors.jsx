@@ -23,7 +23,7 @@ const PopularInstructors = () => {
   return (
     <div>
       <h2 className="text-5xl text-center mt-12">Popular Instructors</h2>
-      <div className='grid md:grid-cols-3 gap-8 mx-auto p-12'>
+      <div className='grid md:grid-cols-3 gap-6 p-12'>
         {sortedUsers.slice(0, 6).map((item) => (
           <PopularInstructor key={item._id} item={item} />
         ))}

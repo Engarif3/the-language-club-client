@@ -1,4 +1,5 @@
 import React from "react";
+import Container from "../../../Container";
 
 
 const PopularInstructor = ({item}) => {
@@ -7,7 +8,7 @@ const PopularInstructor = ({item}) => {
   // const {photo} = userData;
 
   return (
-    <div>
+    <Container>
        
       <div className="card  bg-base-100 shadow-xl">
         <figure>
@@ -23,7 +24,7 @@ const PopularInstructor = ({item}) => {
           <p>Students: {seats}</p>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
