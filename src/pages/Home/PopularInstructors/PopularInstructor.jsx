@@ -4,8 +4,8 @@ import Container from "../../../Container";
 
 const PopularInstructor = ({item}) => {
   
-  const {className, classImage, instructorName,instructorPhoto, instructorEmail, seats, email} = item;
-  // const {photo} = userData;
+  const {instructorName,instructorPhoto, instructorEmail, seats} = item;
+  
 
   return (
     <Container>
@@ -15,7 +15,7 @@ const PopularInstructor = ({item}) => {
           <img
             className="h-80 w-11/12 rounded-lg cover m-4"
             src={instructorPhoto}
-            alt="Shoes"
+            alt="instructor"
           />
         </figure>
         <div className="card-body">
