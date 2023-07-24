@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
+import Container from '../../Container';
 
 const Course = ({ course }) => {
   const [isAdmin] = useAdmin();
@@ -53,8 +54,7 @@ const Course = ({ course }) => {
   };
 
   return (
-    <div>
-      <div>
+      <Container>
         <div className="card bg-base-100 shadow-xl">
           <figure>
             <img className="h-80 w-11/12 rounded-lg cover m-4" src={classImage} alt="Instructor Image" />
@@ -74,8 +74,8 @@ const Course = ({ course }) => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </Container>
+
   );
 };
 

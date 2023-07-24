@@ -20,9 +20,6 @@ const Instructor = ({instructor}) => {
           <div className="card-body">
             <h2 className="card-title">Name:{name}</h2>
             <p>Email: {email}</p>
-            {/* <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div> */}
           </div>
         </div>
       </Container>
