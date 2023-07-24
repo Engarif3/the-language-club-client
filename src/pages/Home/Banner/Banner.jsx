@@ -5,24 +5,19 @@ import img1 from '../../../assets/home/01.jpg';
 import img2 from '../../../assets/home/02.jpg';
 import img3 from '../../../assets/home/03.png';
 import img4 from '../../../assets/home/04.jpg';
+import img6 from '../../../assets/home/06.png';
+
+const images =[img1, img2, img3, img4, img6]
 
 const Banner =()=> {
   return (
     <div className="">
       <Carousel useKeyboardArrows={true} className="text-center">
-       
+          {images.map((URL, index) => (
           <div className="slide h-full md:h-[800px]">
-            <img className="h-full" alt="sample_file" src={img1} />
+            <img className="h-full" alt="banner_image" src={URL} key={index} />
           </div>
-          <div className="slide h-full md:h-[800px]">
-            <img className="h-full" alt="sample_file" src={img2} />
-          </div>
-          <div className="slide h-full md:h-[800px]">
-            <img className="h-full" alt="sample_file" src={img3} />
-          </div>
-          <div className="slide h-full md:h-[800px]">
-            <img className="h-full" alt="sample_file" src={img4} />
-          </div> 
+        ))}
       </Carousel>
     </div>
   );
