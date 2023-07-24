@@ -17,8 +17,9 @@ const NavBar = () => {
   };
 
   const navOptions = (
-    <>
-      <li>
+    <div className="md:flex justify-end gap-48">
+    <div className="md:flex">
+    <li>
         <Link to="/">Home</Link>
       </li>
       <li>
@@ -27,8 +28,11 @@ const NavBar = () => {
       <li>
         <Link to="/classes">Classes</Link>
       </li>
-      {user && (
-        <div className="flex gap-10">
+    </div>
+    
+    <div>
+    {user && (
+        <div className="flex  md:gap-10">
           {isAdmin ? (
             <li>
               <Link to="/dashboard/adminhome">Dashboard</Link>
@@ -42,37 +46,33 @@ const NavBar = () => {
               <Link to="/dashboard/userhome">Dashboard</Link>
             </li>
           )}
-          {/* <button className="btn btn-circle my-4">
+         <div className="flex md:gap-2">
+         <button className="btn btn-circle md:my-4 hidden md:block">
             <img
-              className="w-10 h-10 rounded-full"
+              className="w-10 h-10 m-1 rounded-full "
               src={user.photoURL}
               alt=""
             />
           </button>
-          <button onClick={handleLogOut} className="btn bg-fuchsia-900 my-4">
+          <div className="flex">
+          <button onClick={handleLogOut} className="btn bg-fuchsia-900 md:my-4">
             LogOut
-          </button> */}
+          </button>
+          </div>
+         </div>
         </div>
       )}
 
-      {user?
-        (<button className="btn btn-circle my-4">
-        <img
-          className="w-10 h-10 rounded-full"
-          src={user.photoURL}
-          alt=""
-        />
-      </button>) &&
-      (<button onClick={handleLogOut} className="btn bg-fuchsia-900 my-4">
-        LogOut
-      </button>) :
-        (<li>
+      {!user && (
+        <li>
           <Link to="/login" className=" bg-blue-950">
             <button className="btn bg-fuchsia-900 mb-2">Login</button>{" "}
           </Link>
-        </li>) 
-      }
-    </>
+        </li>
+      )}
+    </div>
+      
+    </div>
   );
 
   return (
