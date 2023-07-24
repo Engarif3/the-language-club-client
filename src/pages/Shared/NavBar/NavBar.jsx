@@ -42,26 +42,36 @@ const NavBar = () => {
               <Link to="/dashboard/userhome">Dashboard</Link>
             </li>
           )}
-          <button className="btn btn-circle my-4">
+          {/* <button className="btn btn-circle my-4">
             <img
               className="w-10 h-10 rounded-full"
               src={user.photoURL}
               alt=""
             />
           </button>
-          <button onClick={handleLogOut} className="btn bg-fuchsia-900 md:my-4">
+          <button onClick={handleLogOut} className="btn bg-fuchsia-900 my-4">
             LogOut
-          </button>
+          </button> */}
         </div>
       )}
 
-      {!user && (
-        <li>
+      {user?
+        (<button className="btn btn-circle my-4">
+        <img
+          className="w-10 h-10 rounded-full"
+          src={user.photoURL}
+          alt=""
+        />
+      </button>) &&
+      (<button onClick={handleLogOut} className="btn bg-fuchsia-900 my-4">
+        LogOut
+      </button>) :
+        (<li>
           <Link to="/login" className=" bg-blue-950">
             <button className="btn bg-fuchsia-900 mb-2">Login</button>{" "}
           </Link>
-        </li>
-      )}
+        </li>) 
+      }
     </>
   );
 
