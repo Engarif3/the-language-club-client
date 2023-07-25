@@ -1,5 +1,5 @@
 
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import {
   FaWallet,
   FaCalendarAlt,
@@ -8,25 +8,31 @@ import {
   FaBook,
 } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
-import NavBar from "../pages/Shared/NavBar/NavBar";
-import Footer from "../pages/Shared/Footer/Footer";
 import useInstructor from "../hooks/useInstructor";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const [open, setOpen] = useState(true);
+  const {logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => navigate("/"))
+      .catch((error) => console.log(error));
+  };
 
   return (
-    <div>
-      <NavBar></NavBar>
-      <section className="flex gap-6">
+
+      <section className="flex md:gap-6">
         <div
-          className={`bg-[#0e0e0e] min-h-screen ${
+          className={`bg-sky-900 min-h-screen ${
             open ? "w-72" : "w-12"
-          } duration-500 text-gray-100 px-4`}
+          } duration-100 text-gray-100 px-4`}
         >
           <div className="py-3 flex justify-end">
             <HiMenuAlt3
@@ -35,7 +41,7 @@ const Dashboard = () => {
               onClick={() => setOpen(!open)}
             />
           </div>
-          <div className="mt-4 flex flex-col gap-4 relative menu p-2 ">
+          <div className="mt-4 flex flex-col gap-4  menu p-2 ">
                      
                         {isAdmin ? <>
                              <li>{open&&<NavLink to="/dashboard/adminhome"><FaHome></FaHome>Admin Home</NavLink>}</li>
@@ -54,13 +60,18 @@ const Dashboard = () => {
                          </>
                      }
           </div>
+          {open&&<hr  />}
+          <div className="mt-4 flex flex-col gap-4  menu p-2">
+          <li>{open&&<NavLink to="/"><FaHome></FaHome>Home</NavLink>}</li>
+          <li onClick={handleLogOut}>{open&&<NavLink><FaHome></FaHome>Logout</NavLink>}</li>
+          </div>
+
         </div>
         <div className=" text-xl text-gray-900 mx-auto ">
           <div className="mx-auto"><Outlet></Outlet></div>
         </div>
       </section>
-      <Footer></Footer>
-    </div>
+      
   );
 };
 

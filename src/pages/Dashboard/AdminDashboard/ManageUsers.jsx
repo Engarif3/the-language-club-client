@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import {FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageUsers = () => {
@@ -72,15 +72,15 @@ const ManageUsers = () => {
   };
 
   return (
-    <div className="w-full text-center">
+    <div className="md:w-full text-center">
         <Helmet>
           <title>The Language Club | Manage users</title>
         </Helmet>
         <h3 className="text-3xl font-semibold my-4">
            Total Users: {users.length}
         </h3>
-      <div>
-        <table className="table-auto table-zebra w-full">
+      <div className="overflow-x-auto ">
+        <table className="md:table-auto table-xs table-zebra w-full">
           {/* head */}
           <thead className="bg-indigo-400 h-12">
             <tr className='text-sm'>

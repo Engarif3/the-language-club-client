@@ -5,8 +5,6 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import ExtraSection from "../ExtraSection";
 
 
-
-
 const Home = () => {
     return (
         <div>
@@ -17,7 +15,7 @@ const Home = () => {
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
             <ExtraSection></ExtraSection>
-
+          
         </div>
     );
 };
