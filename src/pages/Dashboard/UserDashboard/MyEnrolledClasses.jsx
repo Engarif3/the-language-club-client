@@ -23,10 +23,10 @@ const paidClasses = users.filter(
     return (
         <div className='mb-12'>
             <Helmet>
-                <title>The Language Club | Classes</title>
+                <title>The Language Club | Courses</title>
             </Helmet>
             <h2 className='text-5xl text-center py-12'>My Enrolled Classes</h2>
-            <div className='grid grid-cols-3 gap-8 px-12'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8 px-2 md:px-12 w-full'>
             {
                 paidClasses.map(paidClass=> <MyEnrolledClass key={paidClass._id} paidClass={paidClass} ></MyEnrolledClass> )
             }
