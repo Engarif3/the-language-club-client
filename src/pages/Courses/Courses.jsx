@@ -19,9 +19,9 @@ const Courses = () => {
     return (
         <div className='mb-12'>
             <Helmet>
-                <title>The Language Club | Classes</title>
+                <title>The Language Club | Courses</title>
             </Helmet>
-            <h2 className='text-5xl text-center py-12'>All Classes</h2>
+            <h2 className='text-5xl text-center py-12'>All Courses</h2>
             <div className='grid md:grid-cols-3 gap-8 px-12'>
             {
                 instructorUsers.map(course => <Course key={course._id} course={course} ></Course> )
