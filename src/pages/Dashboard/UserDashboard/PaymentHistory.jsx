@@ -16,7 +16,7 @@ const PaymentHistory = () => {
     (payment) => payment.email === userEmail
   );
   return (
-    <div className="w-full">
+    <div className="w-full text-center">
       <h3 className="text-3xl font-semibold my-4">
         Total Enrolled Classes: {paymentUsers.length}
       </h3>

@@ -47,10 +47,10 @@ const Dashboard = () => {
                              <li>{open&&<NavLink to="/dashboard/myclass"><FaBook></FaBook> My Courses</NavLink>}</li>
                             
                          </> : <>
-                             <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> Student Home</NavLink></li>
-                             <li><NavLink to="/dashboard/my-selected-classes"><FaCalendarAlt></FaCalendarAlt> My Selected Courses</NavLink></li>
-                             <li><NavLink to="/dashboard/my-enrolled-classes"><FaCalendarAlt></FaCalendarAlt> My Enrolled Courses</NavLink></li>
-                             <li><NavLink to="/dashboard/payment-history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                             <li>{open&&<NavLink to="/dashboard/userhome"><FaHome></FaHome> Student Home</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/my-selected-classes"><FaCalendarAlt></FaCalendarAlt> My Selected Courses</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/my-enrolled-classes"><FaCalendarAlt></FaCalendarAlt> My Enrolled Courses</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/payment-history"><FaWallet></FaWallet> Payment History</NavLink>}</li>
                          </>
                      }
           </div>

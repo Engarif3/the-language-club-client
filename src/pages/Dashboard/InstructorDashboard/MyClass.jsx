@@ -82,7 +82,7 @@ const MyClass = () => {
   const filteredUsers = users.filter((user) => user.email === userEmail);
 
   return (
-    <div className="w-full">
+    <div className="w-full text">
       <h3 className="text-3xl font-semibold my-4">Total Classes: {filteredUsers.length}</h3>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
