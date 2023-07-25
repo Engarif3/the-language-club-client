@@ -34,7 +34,7 @@ const Dashboard = () => {
         <div
           className={`bg-sky-900 min-h-screen ${
             open ? "w-72" : "w-12"
-          } duration-100 text-gray-100 px-4`}
+          } duration-100 text-white px-4`}
         >
           <div className="py-3 flex justify-end">
             <HiMenuAlt3
@@ -43,7 +43,7 @@ const Dashboard = () => {
               onClick={() => setOpen(!open)}
             />
           </div>
-          <div className="mt-4 flex flex-col gap-4  menu p-2 ">
+          <div className="mt-4 flex flex-col gap-4  menu p-2 rounded-2xl bg-slate-600">
                      
                         {isAdmin ? <>
                              <li>{open&&<NavLink to="/dashboard/adminhome"><RiAdminFill className="text-red-500"></RiAdminFill>Admin Home</NavLink>}</li>
@@ -62,10 +62,10 @@ const Dashboard = () => {
                          </>
                      }
           </div>
-          {open&&<hr  />}
-          <div className="mt-4 flex flex-col gap-4  menu p-2">
-          <li>{open&&<NavLink to="/"><FaHome className="text-red-500"></FaHome>Home</NavLink>}</li>
-          <li onClick={handleLogOut}>{open&&<p><BiLogOut className="text-red-500"></BiLogOut>Logout</p>}</li>
+          {open&&<hr className="my-12 text-red-600"  />}
+          <div className="mt-4 flex flex-col gap-4  menu p-2  rounded-2xl bg-slate-600">
+          <li>{open&&<NavLink to="/"><FaHome size={24} className="text-red-500"></FaHome>Home</NavLink>}</li>
+          <li onClick={handleLogOut}>{open&&<p><BiLogOut size={24} className="text-red-500"></BiLogOut>Logout</p>}</li>
           </div>
 
         </div>
