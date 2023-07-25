@@ -7,6 +7,8 @@ import {
   FaUsers,
   FaBook,
 } from "react-icons/fa";
+import {BiLogOut} from "react-icons/bi"
+import {RiAdminFill} from "react-icons/ri"
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import { HiMenuAlt3 } from "react-icons/hi";
@@ -44,9 +46,9 @@ const Dashboard = () => {
           <div className="mt-4 flex flex-col gap-4  menu p-2 ">
                      
                         {isAdmin ? <>
-                             <li>{open&&<NavLink to="/dashboard/adminhome"><FaHome></FaHome>Admin Home</NavLink>}</li>
-                             <li>{open&&<NavLink to="/dashboard/manage-class"> <FaBook></FaBook> Manage Courses</NavLink>}</li>
-                             <li>{open&&<NavLink to="/dashboard/manage-users"><FaUsers></FaUsers> Manage Users</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/adminhome"><RiAdminFill className="text-red-500"></RiAdminFill>Admin Home</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/manage-class"> <FaBook className="text-red-500"></FaBook> Manage Courses</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/manage-users"><FaUsers className="text-red-500"></FaUsers> Manage Users</NavLink>}</li>
                          </> : isInstructor? <>
                              <li>{open&&<NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink>}</li>
                              <li>{open&&<NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Course</NavLink>}</li>
@@ -62,8 +64,8 @@ const Dashboard = () => {
           </div>
           {open&&<hr  />}
           <div className="mt-4 flex flex-col gap-4  menu p-2">
-          <li>{open&&<NavLink to="/"><FaHome></FaHome>Home</NavLink>}</li>
-          <li onClick={handleLogOut}>{open&&<NavLink><FaHome></FaHome>Logout</NavLink>}</li>
+          <li>{open&&<NavLink to="/"><FaHome className="text-red-500"></FaHome>Home</NavLink>}</li>
+          <li onClick={handleLogOut}>{open&&<p><BiLogOut className="text-red-500"></BiLogOut>Logout</p>}</li>
           </div>
 
         </div>
