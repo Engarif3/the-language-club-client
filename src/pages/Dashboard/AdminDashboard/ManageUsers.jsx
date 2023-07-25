@@ -79,23 +79,23 @@ const ManageUsers = () => {
       <h3 className="text-3xl font-semibold my-4">
         Total Users: {users.length}
       </h3>
-      <div className="overflow-x-auto">
-        <table className="table table-zebra  w-full">
+      <div>
+        <table className="table-auto table-zebra mx-4 px-8 w-full">
           {/* head */}
-          <thead>
+          <thead className="bg-indigo-400 h-12">
             <tr>
-              <th>#</th>
-              <th>Name</th>
+              <th className="pl-12 rounded-l-lg">#</th>
+              <th >Name</th>
               <th>Email</th>
               <th>Role</th>
               <th>Make Admin</th>
-              <th>Make Instructor</th>
+              <th className="pr-12 rounded-r-lg">Make Instructor</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <tr className="h-8" key={user._id}>
-                <th>{index + 1}</th>
+              <tr className="h-4" key={user._id}>
+                <th className="pl-12">{index + 1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.role || "student"}</td>

@@ -1,64 +1,67 @@
+
 import { NavLink, Outlet } from "react-router-dom";
-import { FaWallet, FaCalendarAlt, FaHome,  FaUsers, FaBook, FaUserGraduate, FaRegEnvelope } from 'react-icons/fa';
+import {
+  FaWallet,
+  FaCalendarAlt,
+  FaHome,
+  FaUsers,
+  FaBook,
+} from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import NavBar from "../pages/Shared/NavBar/NavBar";
 import Footer from "../pages/Shared/Footer/Footer";
 import useInstructor from "../hooks/useInstructor";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { useState } from "react";
 
 const Dashboard = () => {
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  const [open, setOpen] = useState(true);
 
-    const [isAdmin] = useAdmin();
-    const [isInstructor] = useInstructor();
-  
-
-    return (
-        <div>
-            <NavBar></NavBar>
-            <div className="drawer drawer-mobile ">
-            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content md:-ml-28 text-xs fit">
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden ">Open drawer</label>
-                <Outlet></Outlet>
-
-            </div>
-            <div className="drawer-side bg-stone-700 text-red-600 w-4/6 px-6">
-                <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-2 w-80">
-
-                    {
-                        isAdmin ? <>
-                            <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/manage-class"> <FaBook></FaBook> Manage Class</NavLink></li>
-                            <li><NavLink to="/dashboard/manage-users"><FaUsers></FaUsers> Manage Users</NavLink></li>
-
+  return (
+    <div>
+      <NavBar></NavBar>
+      <section className="flex gap-6">
+        <div
+          className={`bg-[#0e0e0e] min-h-screen ${
+            open ? "w-72" : "w-12"
+          } duration-500 text-gray-100 px-4`}
+        >
+          <div className="py-3 flex justify-end">
+            <HiMenuAlt3
+              size={24}
+              className="cursor-pointer"
+              onClick={() => setOpen(!open)}
+            />
+          </div>
+          <div className="mt-4 flex flex-col gap-4 relative menu p-2 ">
+                     
+                        {isAdmin ? <>
+                             <li>{open&&<NavLink to="/dashboard/adminhome"><FaHome></FaHome>Admin Home</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/manage-class"> <FaBook></FaBook> Manage Class</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/manage-users"><FaUsers></FaUsers> Manage Users</NavLink>}</li>
+                         </> : isInstructor? <>
+                             <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
+                             <li><NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Class</NavLink></li>
+                             <li><NavLink to="/dashboard/myclass"><FaBook></FaBook> My Classes</NavLink></li>
                             
-                        </> : isInstructor? <>
-                            <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
-                            <li><NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Class</NavLink></li>
-                            <li><NavLink to="/dashboard/myclass"><FaBook></FaBook> My Classes</NavLink></li>
-                            {/* <li><NavLink to="/dashboard/enrolled-students"><FaUserGraduate></FaUserGraduate> Total Enrolled Students</NavLink></li>
-                            <li><NavLink to="/dashboard/feedback"><FaRegEnvelope></FaRegEnvelope> Feedback from Admin</NavLink></li> */}
-    
-                        </> : <>
-                            <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> Student Home</NavLink></li>
-                            <li><NavLink to="/dashboard/my-selected-classes"><FaCalendarAlt></FaCalendarAlt> My Selected Classes</NavLink></li>
-                            <li><NavLink to="/dashboard/my-enrolled-classes"><FaCalendarAlt></FaCalendarAlt> My Enrolled Classes</NavLink></li>
-                            <li><NavLink to="/dashboard/payment-history"><FaWallet></FaWallet> Payment History</NavLink></li>
-                            {/* <li>
-                                <NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart
-                                    <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
-                                </NavLink>
-
-                            </li> */}
-                        </>
-                    }
-                </ul>
-
-            </div>
+                         </> : <>
+                             <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> Student Home</NavLink></li>
+                             <li><NavLink to="/dashboard/my-selected-classes"><FaCalendarAlt></FaCalendarAlt> My Selected Classes</NavLink></li>
+                             <li><NavLink to="/dashboard/my-enrolled-classes"><FaCalendarAlt></FaCalendarAlt> My Enrolled Classes</NavLink></li>
+                             <li><NavLink to="/dashboard/payment-history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                         </>
+                     }
+          </div>
         </div>
-         <Footer></Footer>
+        <div className=" text-xl text-gray-900 mx-auto ">
+          <div className="mx-auto"><Outlet></Outlet></div>
         </div>
-    );
+      </section>
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default Dashboard;

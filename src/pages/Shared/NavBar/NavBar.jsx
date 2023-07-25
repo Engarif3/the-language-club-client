@@ -17,7 +17,7 @@ const NavBar = () => {
   };
 
   const navOptions = (
-    <div className="md:flex justify-end gap-48">
+    <div className="md:flex justify-end md:gap-48">
     <div className="md:flex">
     <li>
         <Link to="/">Home</Link>
@@ -77,7 +77,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="navbar bg-blue-950 text-white">
+      <div className="navbar bg-blue-950 text-white px-4 md:px-0">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
