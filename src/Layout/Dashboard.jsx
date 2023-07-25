@@ -42,9 +42,9 @@ const Dashboard = () => {
                              <li>{open&&<NavLink to="/dashboard/manage-class"> <FaBook></FaBook> Manage Courses</NavLink>}</li>
                              <li>{open&&<NavLink to="/dashboard/manage-users"><FaUsers></FaUsers> Manage Users</NavLink>}</li>
                          </> : isInstructor? <>
-                             <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
-                             <li><NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Course</NavLink></li>
-                             <li><NavLink to="/dashboard/myclass"><FaBook></FaBook> My Courses</NavLink></li>
+                             <li>{open&&<NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Course</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/myclass"><FaBook></FaBook> My Courses</NavLink>}</li>
                             
                          </> : <>
                              <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> Student Home</NavLink></li>
