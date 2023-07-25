@@ -15,6 +15,7 @@ const PaymentHistory = () => {
   const paymentUsers = payments.filter(
     (payment) => payment.email === userEmail
   );
+  
   return (
     <div className="w-full text-center">
       <h3 className="text-3xl font-semibold my-4">
@@ -31,6 +32,7 @@ const PaymentHistory = () => {
               <th>Instructor Email</th>
               <th>Amount</th>
               <th>Date of Purchase</th>
+              <th>Time of Purchase</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -42,7 +44,8 @@ const PaymentHistory = () => {
                 <td>{booking.instructorName}</td>
                 <td>{booking.instructorEmail}</td>
                 <td className="text-center">${booking.price}</td>
-                <td className="text-center">{booking.date}</td>
+                <td className="text-center">{booking.date.split("T")[0]}</td>
+                <td className="text-center">{booking.date.slice(11,19)}</td>
                 <td className="text-center">{booking.status}</td>
               </tr>
             ))}
