@@ -21,7 +21,7 @@ const Instructors = () => {
         <title>The Language Club | Instructors</title>
       </Helmet>
       <h2 className="text-5xl text-center py-12">All Instructors Information</h2>
-      <div className="grid md:grid-cols-3 gap-8 px-12">
+      <div className="grid md:grid-cols-3 gap-8 px-12 ">
         {instructors.map(instructor => (
           <Instructor key={instructor._id} instructor={instructor} />
         ))}
