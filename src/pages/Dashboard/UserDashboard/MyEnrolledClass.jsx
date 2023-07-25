@@ -16,7 +16,7 @@ const MyEnrolledClass = ({ paidClass }) => {
   return (
     <div>
       <div>
-        <div className="card w-82 bg-base-100 shadow-xl">
+        <div className="card w-82 bg-slate-400 shadow-xl">
           <div className="card-body w-full p-8">
             <h2 className="card-title">Course Name: {courseName}</h2>
             <h2 className="card-title">Instructor:</h2>
