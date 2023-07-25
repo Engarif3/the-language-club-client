@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import accept from "../../../assets/accept.png"
+import deny from "../../../assets/deny.png"
 
 const ManageClass = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -92,7 +94,7 @@ const ManageClass = () => {
           {/* head */}
           <thead className="bg-indigo-400 h-12">
             <tr>
-              <th>#</th>
+              <th className="pl-12 rounded-l-lg">#</th>
               <th>Photo</th>
               <th>Class Name</th>
               <th>Instructor Name</th>
@@ -102,30 +104,30 @@ const ManageClass = () => {
               <th>Status</th>
               <th>Approve</th>
               <th>Deny</th>
-              <th>Feedback</th>
+              <th className="pr-12 rounded-r-lg">Feedback</th>
             </tr>
           </thead>
           {/* body */}
           <tbody>
             {classes.map((classItem, index) => (
               <tr key={classItem._id}>
-                <td>{index + 1}</td>
+                <td className="pl-12">{index + 1}</td>
                 <td>
-                  <img className="w-8 h-8 ml-2" src={classItem.classImage} alt="" />
+                  <img className="w-8 h-8 ml-2 rounded-md" src={classItem.classImage} alt="" />
                 </td>
                 <td>{classItem.nameClass}</td>
                 <td>{classItem.instructorName}</td>
                 <td>{classItem.email}</td>
                 <td className="text-center">{classItem.seats}</td>
                 <td className="text-center">${classItem.price}</td>
-                <td className="text-primary">{classItem.status}</td>
+                <td className={classItem.status==="denied"?"text-red-600":classItem.status==="approved"?"text-green-500":"text-indigo-600 animate-bounce"}>{classItem.status}</td>
                 <td>
                   <button
                     onClick={() => handleApprove(classItem._id, index)}
                     className="btn btn-sm btn-primary text-xs"
                     disabled={classItem.disabled}
                   >
-                    Approve
+                    <img className='h-6 w-6' src={accept} alt="accept-image" />
                   </button>
                 </td>
                 <td>
@@ -134,7 +136,7 @@ const ManageClass = () => {
                     className="btn btn-sm btn-primary text-xs"
                     disabled={classItem.disabled}
                   >
-                    Deny
+                    <img className='h-6 w-6' src={deny} alt="deny_image" />
                   </button>
                 </td>
                 <td>

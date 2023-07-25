@@ -96,7 +96,7 @@ const ManageUsers = () => {
             {users.map((user, index) => (
               <tr className="h-4" key={user._id}>
                 <th className="pl-12">{index + 1}</th>
-                <td>{user.name}</td>
+                <td className="p-6">{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.role || "student"}</td>
                 <td>
@@ -120,7 +120,7 @@ const ManageUsers = () => {
                   {user.role !== "instructor" ? (
                     <button
                       onClick={() => handleInstructor(user)}
-                      className="btn btn-ghost bg-orange-600 text-white"
+                      className="btn btn-secondary bg-orange-600 text-white"
                     >
                       <FaUserShield />
                     </button>
