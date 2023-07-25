@@ -83,23 +83,23 @@ const ManageUsers = () => {
         <table className="table-auto table-zebra w-full">
           {/* head */}
           <thead className="bg-indigo-400 h-12">
-            <tr>
-              <th className="pl-12 rounded-l-lg">#</th>
-              <th >Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Make Admin</th>
-              <th className="pr-12 rounded-r-lg">Make Instructor</th>
+            <tr className='text-sm'>
+              <th className="pl-4 rounded-l-lg">#</th>
+              <th className="px-4">Name</th>
+              <th className="px-4">Email</th>
+              <th className="px-4">Role</th>
+              <th className="px-4">Make Admin</th>
+              <th className="pr-4 rounded-r-lg">Make Instructor</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, index) => (
               <tr className="h-4" key={user._id}>
-                <th className="pl-12">{index + 1}</th>
-                <td className="p-6">{user.name}</td>
+                <th className="px-4">{index + 1}</th>
+                <td className="p-4">{user.name}</td>
                 <td>{user.email}</td>
-                <td>{user.role || "student"}</td>
-                <td>
+                <td className={user?.role==="admin"?"font-semibold text-red-600":user?.role==="instructor"?"text-cyan-500":""}>{user?.role || "student"}</td>
+                <td className="px-4">
                   {user.role !== "admin" ? (
                     <button
                       onClick={() => handleAdmin(user)}
@@ -116,7 +116,7 @@ const ManageUsers = () => {
                     </button>
                   )}
                 </td>
-                <td>
+                <td className="px-4">
                   {user.role !== "instructor" ? (
                     <button
                       onClick={() => handleInstructor(user)}
