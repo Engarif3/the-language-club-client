@@ -102,7 +102,7 @@ const CheckoutForm = ({ booking }) => {
           });
           
           Swal.fire("Payment successful");
-          navigate("/dashboard/myclass")
+          navigate("/dashboard/my-enrolled-classes")
     }
   };
 
