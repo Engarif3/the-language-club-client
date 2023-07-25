@@ -3,11 +3,14 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import {FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import Loader from "../../../components/Loader/Loader";
 
 const ManageUsers = () => {
   const [loading, setLoading] = useState([]);
   const { data: users = [], refetch } = useQuery(["users"], async () => {
+    setLoading(true)
     const res = await fetch("https://assignment-12-server-woad.vercel.app/users");
+    setLoading(false)
     return res.json();
   });
 
@@ -72,6 +75,10 @@ const ManageUsers = () => {
       }
     });
   };
+
+  if (loading) {
+    return <Loader></Loader>
+  }
 
   return (
     <div className="md:w-full text-center">
