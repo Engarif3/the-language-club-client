@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import {FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageUsers = () => {
+  const [loading, setLoading] = useState([]);
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await fetch("https://assignment-12-server-woad.vercel.app/users");
     return res.json();

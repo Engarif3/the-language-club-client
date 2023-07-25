@@ -5,16 +5,20 @@ import accept from "../../../assets/accept.png"
 import deny from "../../../assets/deny.png"
 import forbidden from "../../../assets/forbidden.png"
 import feedback from "../../../assets/feedback.png"
+import Loader from '../../../components/Loader/Loader';
 
 const ManageClass = () => {
   const [axiosSecure] = useAxiosSecure();
   const [classes, setClasses] = useState([]);
+  const [loading, setLoading] = useState([]);
 
   useEffect(() => {
+
     fetchClasses();
   }, []);
 
   const fetchClasses = async () => {
+    setLoading(true)
     try {
       const res = await axiosSecure.get('/classes');
       const updatedClasses = res.data.map((classItem) => ({
@@ -22,8 +26,11 @@ const ManageClass = () => {
         disabled: classItem.status !== 'pending',
       }));
       setClasses(updatedClasses);
+      setLoading(false);
+      
     } catch (error) {
       console.log('Error fetching classes:', error);
+      setLoading(false);
     }
   };
 
@@ -88,6 +95,9 @@ const ManageClass = () => {
     }
   };
 
+  if (loading) {
+    return <Loader></Loader>
+  }
   return (
     <div className="w-full text-center">
       <h3 className="text-3xl font-semibold my-4">Total Courses: {classes.length}</h3>
