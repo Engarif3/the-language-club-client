@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Loader from "../../../components/Loader/Loader";
 
 const PaymentHistory = () => {
+  const [loading, setLoading] = useState([]);
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
   const { data: payments = [], refetch } = useQuery(["payments"], async () => {
+    setLoading(true);
     const res = await axiosSecure.get("/payments");
+    setLoading(false)
     return res.data;
   });
 
@@ -16,6 +20,9 @@ const PaymentHistory = () => {
     (payment) => payment.email === userEmail
   );
   
+  if (loading) {
+    return <Loader></Loader>
+  }
   return (
     <div className="w-full text-center">
       <h3 className="text-3xl font-semibold my-4">
