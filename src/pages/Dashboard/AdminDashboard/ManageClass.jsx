@@ -85,12 +85,12 @@ const ManageClass = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full text-center">
       <h3 className="text-3xl font-semibold my-4">Total Classes: {classes.length}</h3>
-      <div className="overflow-x-auto">
-        <table className="w-full">
+      <div>
+        <table className="table-auto table-zebra mx-4 px-8 w-full">
           {/* head */}
-          <thead>
+          <thead className="bg-indigo-400 h-12">
             <tr>
               <th>#</th>
               <th>Photo</th>

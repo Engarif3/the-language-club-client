@@ -73,12 +73,12 @@ const ManageUsers = () => {
 
   return (
     <div className="w-full text-center">
-      <Helmet>
-        <title>The Language Club | Manage users</title>
-      </Helmet>
-      <h3 className="text-3xl font-semibold my-4">
-        Total Users: {users.length}
-      </h3>
+        <Helmet>
+          <title>The Language Club | Manage users</title>
+        </Helmet>
+        <h3 className="text-3xl font-semibold my-4">
+           Total Users: {users.length}
+        </h3>
       <div>
         <table className="table-auto table-zebra mx-4 px-8 w-full">
           {/* head */}
