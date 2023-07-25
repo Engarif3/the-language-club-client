@@ -18,8 +18,8 @@ const MyEnrolledClass = ({ paidClass }) => {
       <div>
         <div className="card w-82 bg-slate-400 shadow-xl">
           <div className="card-body w-full p-8">
-            <h2 className="card-title">Course Name: {courseName}</h2>
-            <h2 className="card-title">Instructor:</h2>
+            <h2 className="card-title text-orange-700">Course Name: {courseName}</h2>
+            <h2 className="card-title text-cyan-800">Instructor:</h2>
             <p> Name: {instructorName}</p>
             <p> Email: {instructorEmail}</p>
           </div>
