@@ -39,17 +39,17 @@ const Dashboard = () => {
                      
                         {isAdmin ? <>
                              <li>{open&&<NavLink to="/dashboard/adminhome"><FaHome></FaHome>Admin Home</NavLink>}</li>
-                             <li>{open&&<NavLink to="/dashboard/manage-class"> <FaBook></FaBook> Manage Class</NavLink>}</li>
+                             <li>{open&&<NavLink to="/dashboard/manage-class"> <FaBook></FaBook> Manage Courses</NavLink>}</li>
                              <li>{open&&<NavLink to="/dashboard/manage-users"><FaUsers></FaUsers> Manage Users</NavLink>}</li>
                          </> : isInstructor? <>
                              <li><NavLink to="/dashboard/instructorhome"><FaHome></FaHome> Instructor Home</NavLink></li>
-                             <li><NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Class</NavLink></li>
-                             <li><NavLink to="/dashboard/myclass"><FaBook></FaBook> My Classes</NavLink></li>
+                             <li><NavLink to="/dashboard/addclass"><FaCalendarAlt></FaCalendarAlt> Add A Course</NavLink></li>
+                             <li><NavLink to="/dashboard/myclass"><FaBook></FaBook> My Courses</NavLink></li>
                             
                          </> : <>
                              <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> Student Home</NavLink></li>
-                             <li><NavLink to="/dashboard/my-selected-classes"><FaCalendarAlt></FaCalendarAlt> My Selected Classes</NavLink></li>
-                             <li><NavLink to="/dashboard/my-enrolled-classes"><FaCalendarAlt></FaCalendarAlt> My Enrolled Classes</NavLink></li>
+                             <li><NavLink to="/dashboard/my-selected-classes"><FaCalendarAlt></FaCalendarAlt> My Selected Courses</NavLink></li>
+                             <li><NavLink to="/dashboard/my-enrolled-classes"><FaCalendarAlt></FaCalendarAlt> My Enrolled Courses</NavLink></li>
                              <li><NavLink to="/dashboard/payment-history"><FaWallet></FaWallet> Payment History</NavLink></li>
                          </>
                      }

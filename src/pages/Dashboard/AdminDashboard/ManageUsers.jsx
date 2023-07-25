@@ -80,7 +80,7 @@ const ManageUsers = () => {
            Total Users: {users.length}
         </h3>
       <div>
-        <table className="table-auto table-zebra mx-4 px-8 w-full">
+        <table className="table-auto table-zebra w-full">
           {/* head */}
           <thead className="bg-indigo-400 h-12">
             <tr>
