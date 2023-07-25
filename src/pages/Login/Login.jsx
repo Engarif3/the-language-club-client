@@ -48,8 +48,8 @@ const Login = () => {
         <title>The Language Club | Login</title>
       </Helmet>
 
-      <div className="hero min-h-screen my-8 bg-base-200">
-        <div className="card md:w-1/2 shadow-2xl bg-base-100">
+      <div className="hero md:min-h-screen lg:min-h-screen my-8">
+        <div className="card shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <h2 className='text-4xl text-center'>Please Login</h2>
             <div className="form-control">
@@ -71,10 +71,10 @@ const Login = () => {
                 />
                 <button
                   type="button"
-                  className="absolute top-2 right-8 flex bg-slate-400 items-center"
+                  className="absolute top-2 right-8 flex bg-slate-400 items-center "
                   onClick={togglePasswordVisibility}
                 >
-                  {showPassword ? <FaEyeSlash className='text-xl' /> : <FaEye className='text-xl' />}
+                  {showPassword ? <FaEyeSlash size={24}  /> : <FaEye size={24} />}
                 </button>
               </div>
               {errors.password && errors.password.type === "manual" && (

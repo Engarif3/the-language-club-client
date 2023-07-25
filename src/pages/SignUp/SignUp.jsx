@@ -65,8 +65,8 @@ const SignUp = () => {
       <Helmet>
         <title>The Language Club | Sign Up</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200 my-8">
-        <div className="card w-1/2 p-0 shadow-2xl bg-base-100">
+      <div className="hero md:min-h-screen lg:min-h-screen my-8">
+        <div className="card p-0 shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body mt-0">
             <h2 className="text-xl text-center">Please Register</h2>
             <div className="form-control -mb-8">
