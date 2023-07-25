@@ -3,6 +3,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import accept from "../../../assets/accept.png"
 import deny from "../../../assets/deny.png"
+import forbidden from "../../../assets/forbidden.png"
 
 const ManageClass = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -124,19 +125,19 @@ const ManageClass = () => {
                 <td>
                   <button
                     onClick={() => handleApprove(classItem._id, index)}
-                    className="btn btn-sm btn-primary text-xs"
+                    className="btn btn-sm bg-sky-900 text-xs"
                     disabled={classItem.disabled}
                   >
-                    <img className='h-6 w-6' src={accept} alt="accept-image" />
+                    {classItem.disabled?<img className='h-6 w-6' src={forbidden} alt="forbidden_image" />:<img className='h-6 w-6' src={accept} alt="accept-image" />}
                   </button>
                 </td>
                 <td>
                   <button
                     onClick={() => handleDeny(classItem._id, index)}
-                    className="btn btn-sm btn-primary text-xs"
+                    className="btn btn-sm bg-sky-900 text-xs"
                     disabled={classItem.disabled}
                   >
-                    <img className='h-6 w-6' src={deny} alt="deny_image" />
+                    {classItem.disabled?<img className='h-6 w-6' src={forbidden} alt="forbidden_image" />:<img className='h-6 w-6' src={deny} alt="deny_image" />}
                   </button>
                 </td>
                 <td>
