@@ -47,36 +47,36 @@ const {user} = useAuth();
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200 my-8">
-        <div className="card w-1/2 p-0 shadow-2xl bg-base-100">
+      <div className="hero min-h-screen   my-8">
+        <div className="card w-full p-0 shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body mt-0">
-            <h2 className="text-xl text-center">Add A Class</h2>
+            <h2 className="text-xl text-center">Add A Course</h2>
             <div className="form-control -mb-8">
               <label className="label">
-                <span className="label-text">Class name</span>
+                <span className="label-text">Course name</span>
               </label>
               <input
                 type="text"
                 {...register("nameClass", { required: true })}
-                placeholder="Class Name"
+                placeholder="Course Name"
                 className="input input-bordered"
               />
               {errors.className && (
-                <span className="text-red-600">Class name is required</span>
+                <span className="text-red-600">Course name is required</span>
               )}
             </div>
             <div className="form-control -mb-8">
               <label className="label">
-                <span className="label-text">Class Image</span>
+                <span className="label-text">Course Image</span>
               </label>
               <input
                 type="text"
                 {...register("classImage", { required: true })}
-                placeholder="Class image"
+                placeholder="Course image"
                 className="input input-bordered"
               />
               {errors.classImage && (
-                <span className="text-red-600">Class image is required</span>
+                <span className="text-red-600">Course image is required</span>
               )}
             </div>
             <div className="form-control -mb-8">
