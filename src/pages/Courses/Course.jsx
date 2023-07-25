@@ -57,17 +57,17 @@ const Course = ({ course }) => {
       <Container>
         <div className="card bg-base-100 shadow-xl">
           <figure>
-            <img className="h-80 w-11/12 rounded-lg cover m-4" src={classImage} alt="Instructor Image" />
+            <img className="h-64 w-full rounded-t-lg object-cover" src={classImage} alt="Instructor Image" />
           </figure>
-          <div className="card-body">
+          <div className="card-body h-[12rem] ">
             <h2 className="card-title">Course Name: {nameClass}</h2>
             <p>Instructor Name: {instructorName}</p>
             <p>Available Seats: {seats}</p>
             <p>Price: ${price}</p>
 
-            <div className="card-actions justify-end">
+            <div className="card-actions justify-end relative">
               {(!isInstructor && !isAdmin) && (
-                <button className="btn btn-primary" onClick={handleSelect}>
+                <button className="btn btn-primary absolute bottom-1" onClick={handleSelect}>
                   Select
                 </button>
               )}
