@@ -5,7 +5,7 @@ import image from '../../assets/duck.gif'
 const ErrorPage = () => {
   const { error, status } = useRouteError()
   return (
-    <section className='flex items-center justify-center p-16 text-gray-900'>
+    <section className='flex items-center justify-center p-16 text-gray-900 min-h-screen'>
       <div className='flex flex-col items-center justify-center px-5 mx-auto my-8'>
         <div><img src={image} alt="" /></div>
         <div className='max-w-md text-center'>
