@@ -94,9 +94,9 @@ const NavBar = () => {
         
        <div className="navbar-end space-x-4">
        {
-          user&& <div className="hidden md:block lg:block"><button className="btn btn-circle">
+          user&& <div className="hidden md:block lg:block "><button className="btn btn-sm btn-circle tooltip z-20 tooltip-bottom hover:scale-105" data-tip={user.displayName}>
           <img
-            className="w-10 h-10 text-center rounded-full"
+            className="w-8 h-8 text-center rounded-full"
             src={user?.photoURL}
             alt=""
           />
