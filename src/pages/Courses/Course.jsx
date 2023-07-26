@@ -55,7 +55,7 @@ const Course = ({ course }) => {
 
   return (
       <Container>
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-base-100 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:shadow-2xl duration-300">
           <figure>
             <img className="h-64 w-full rounded-t-lg object-cover" src={classImage} alt="Instructor Image" />
           </figure>

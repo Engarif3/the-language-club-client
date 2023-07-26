@@ -4,18 +4,24 @@ import Course from './Course';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import Loader from '../../components/Loader/Loader';
 
 
 const Courses = () => {
    
-    
-    const {user} = useAuth();
+  const [loading, setLoading] = useState([]);  
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(['classes'], async () => {
+    setLoading(true);
     const res = await axiosSecure.get('/classes');
+    setLoading(false);
     return res.data;
   });
   const instructorUsers = users.filter(user => user.status === "approved")
+
+  if(loading){
+    return <Loader></Loader>;
+  }
     return (
         <div className='mb-12'>
             <Helmet>

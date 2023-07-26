@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Instructor from './Instructor';
+import Loader from '../../components/Loader/Loader';
 
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://assignment-12-server-woad.vercel.app/users")
       .then(res => res.json())
       .then(data => {
         const filteredInstructors = data.filter(user => user.role === "instructor");
         setInstructors(filteredInstructors);
-      })
-      .catch(error => console.log(error));
+        setLoading(false);
+      } )
+      .catch(error => {console.log(error)
+        setLoading(false);
+        });
   }, []);
+
+  if(loading){
+    return <Loader></Loader>;
+  }
 
   return (
     <div className="mb-12">
