@@ -1,13 +1,17 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import PopularInstructor from './PopularInstructor';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import Loader from '../../../components/Loader/Loader';
 
 const PopularInstructors = () => {
+  const [loading, setLoading] = useState(false)
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(['combinedData'], async () => {
+    setLoading(true);
     const res = await axiosSecure.get('/combinedData');
+    setLoading(false);
     return res.data;
   });
 
@@ -20,6 +24,10 @@ const PopularInstructors = () => {
 
   // Sort users based on seats number
   const sortedUsers = filteredUsers.sort((a, b) => b.seats - a.seats);
+
+  if (loading) {
+    return <Loader></Loader>
+  }
   return (
     <div>
       <h2 className="text-5xl text-center py-12">Popular Instructors</h2>
