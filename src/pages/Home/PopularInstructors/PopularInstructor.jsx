@@ -13,7 +13,7 @@ const PopularInstructor = ({item}) => {
       <div className="card  bg-base-100 shadow-xl">
         <figure>
           <img
-            className="h-80 w-11/12 rounded-lg cover m-4"
+            className="h-80 w-11/12 rounded-lg object-fit m-4"
             src={instructorPhoto}
             alt="instructor"
           />

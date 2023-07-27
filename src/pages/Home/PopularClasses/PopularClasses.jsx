@@ -31,9 +31,9 @@ const PopularClasses = () => {
                 <title>The Language Club | Courses</title>
             </Helmet>
             <h2 className={darkMode?"text-neutral-50 text-5xl text-center py-12":"text-5xl text-center py-12"}>Popular Courses</h2>
-            <div className='grid md:grid-cols-3 gap-6'>
+            <div className='grid md:grid-cols-4 gap-8'>
             {
-                sortedLessons.slice(0,6).map(course => <Lesson key={course._id} course={course} ></Lesson> )
+                sortedLessons.slice(0,8).map(course => <Lesson key={course._id} course={course} ></Lesson> )
             }
             </div>
            
