@@ -21,7 +21,7 @@ const NavBar = () => {
 
 
   return (
-    <div className={darkMode?" text-neutral-50 bg-slate-800":"bg-indigo-50"} >
+    <div className={darkMode?" text-neutral-50 bg-slate-800":""} >
   
       <Container>
       <div className="navbar ">
@@ -45,7 +45,7 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-700 text-neutral-50 rounded-box w-52 "
             >
               <li>
                 <Link to="/">Home</Link>
@@ -58,7 +58,7 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
-          <div className=" md:flex">
+          <div className="hidden md:flex">
 
           <img src={logo}  alt="logo" className="w-12" />
           <a className="normal-case text-xl ">The Language Club</a>
@@ -126,7 +126,7 @@ const NavBar = () => {
         
       </div>
       </Container>
-   
+      <hr className="h-px  bg-gray-300 border-0 dark:bg-gray-700"></hr>
     </div>
   );
 };
