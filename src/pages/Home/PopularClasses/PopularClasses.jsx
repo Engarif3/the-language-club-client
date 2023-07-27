@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Lesson from './Lesson';
@@ -27,9 +27,7 @@ const PopularClasses = () => {
   }
     return (
         <div className='mb-12'>
-            <Helmet>
-                <title>The Language Club | Courses</title>
-            </Helmet>
+            
             <h2 className={darkMode?"text-neutral-50 text-5xl text-center py-12":"text-5xl text-center py-12"}>Popular Courses</h2>
             <div className='grid md:grid-cols-4 gap-8'>
             {

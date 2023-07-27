@@ -60,7 +60,7 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
-          <div className="hidden md:flex">
+          <div className="hidden md:flex items-center">
 
           <Link to="/"><img src={logo}  alt="logo" className="w-12" /></Link>
           <Link to="/" className="normal-case text-xl ">The Language Club</Link>
