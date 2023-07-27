@@ -1,5 +1,6 @@
+import logo from "../../../assets/language.png"
 import { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
@@ -57,8 +58,9 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
-          <div className="md:block lg:block hidden ">
+          <div className=" md:flex">
 
+          <img src={logo}  alt="logo" className="w-12" />
           <a className="normal-case text-xl ">The Language Club</a>
           </div>
         </div>
