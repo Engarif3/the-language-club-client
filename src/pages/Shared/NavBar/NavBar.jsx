@@ -81,7 +81,7 @@ const NavBar = () => {
 
         <div>
           {user && (
-            <ul className="md:ml-6 lg:ml-6">
+            <ul className="md:ml-6 lg:ml-6 text-red-600 font-semibold">
               {isAdmin ? (
               
                   <li><NavLink className=" aria-[current=page]:text-blue-400" to="/dashboard/adminhome">Dashboard</NavLink></li>
