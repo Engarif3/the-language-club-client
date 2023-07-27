@@ -3,10 +3,11 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
+import { FaMoon } from "react-icons/fa";
 import Container from "../../../Container";
 
 const NavBar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, handleDarkMode, darkMode } = useContext(AuthContext);
   const navigate = useNavigate();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
@@ -15,9 +16,12 @@ const NavBar = () => {
       .then(() => navigate("/"))
       .catch((error) => console.log(error));
   };
+
+
   return (
-    <Container>
-      <div className="navbar bg-indigo-50">
+    <div className={darkMode? "dark":""}>
+      <Container>
+      <div className="navbar bg-indigo-50 dark:text-neutral-50 dark:bg-slate-800">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -91,8 +95,11 @@ const NavBar = () => {
           )}
           
         </div>
+
+      
         
        <div className="navbar-end space-x-4">
+       <FaMoon onClick={handleDarkMode}></FaMoon>
        {
           user&& <div className="hidden md:block lg:block "><button className="btn btn-sm btn-circle tooltip z-20 tooltip-bottom hover:scale-105" data-tip={user.displayName}>
           <img
@@ -102,17 +109,19 @@ const NavBar = () => {
           />
         </button></div>
         }
-
+         
         {!user ? <Link to="/login" >
-          <a className="btn btn-outline btn-sm">Login</a>
+          <a className={darkMode?"btn btn-warning btn-sm": "btn btn-outline btn-sm"}>Login</a>
         </Link>:<Link onClick={handleLogOut}>
-          <a className="btn btn-outline btn-sm">Logout</a>
+          <a className={darkMode?"btn btn-warning btn-sm": "btn btn-outline btn-sm"}>Logout</a>
         </Link>}
+        
        </div>
         
         
       </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

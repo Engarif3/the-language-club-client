@@ -4,10 +4,12 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Lesson from './Lesson';
 import { useState } from 'react';
 import Loader from '../../../components/Loader/Loader';
+import useAuth from '../../../hooks/useAuth';
 
 
 
 const PopularClasses = () => {
+  const {darkMode } = useAuth();
    
   const [loading, setLoading] = useState(false);
   const [axiosSecure] = useAxiosSecure();
@@ -29,7 +31,7 @@ const PopularClasses = () => {
                 <title>The Language Club | Courses</title>
             </Helmet>
             <h2 className='text-5xl text-center py-12'>Popular Courses</h2>
-            <div className='grid md:grid-cols-3 gap-6 px-8'>
+            <div className='grid md:grid-cols-3 gap-6'>
             {
                 sortedLessons.slice(0,6).map(course => <Lesson key={course._id} course={course} ></Lesson> )
             }

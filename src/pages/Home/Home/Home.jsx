@@ -7,7 +7,7 @@ import ExtraSection from "../ExtraSection";
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Helmet>
                 <title>The Language Club | Home</title>
             </Helmet>
@@ -16,7 +16,7 @@ const Home = () => {
             <PopularInstructors></PopularInstructors>
             <ExtraSection></ExtraSection>
           
-        </div>
+        </>
     );
 };
 

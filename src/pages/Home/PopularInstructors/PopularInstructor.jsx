@@ -8,7 +8,7 @@ const PopularInstructor = ({item}) => {
   
 
   return (
-    <Container>
+    <div>
        
       <div className="card  bg-base-100 shadow-xl">
         <figure>
@@ -24,7 +24,7 @@ const PopularInstructor = ({item}) => {
           <p>Students: {seats}</p>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

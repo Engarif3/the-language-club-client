@@ -8,7 +8,7 @@ const Lesson = ({ course }) => {
   // console.log(instructorEmail)
 
   return (
-    <Container>
+    <div>
       <div>
         <div className="card bg-base-100 shadow-xl">
           <figure>
@@ -22,7 +22,7 @@ const Lesson = ({ course }) => {
           </div>
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

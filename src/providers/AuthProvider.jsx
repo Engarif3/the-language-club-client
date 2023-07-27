@@ -8,6 +8,8 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+    const [darkMode, setDarkMode] = useState(false);
+    
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -64,6 +66,10 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    const handleDarkMode =()=>{
+        setDarkMode(!darkMode);
+    }
+
     const authInfo = {
         user,
         loading,
@@ -71,7 +77,10 @@ const AuthProvider = ({ children }) => {
         signIn,
         googleSignIn,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        handleDarkMode,
+        darkMode,
+        setDarkMode,
     }
 
     return (

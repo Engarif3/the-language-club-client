@@ -1,14 +1,26 @@
 import { Outlet} from "react-router-dom";
 import Footer from "../pages/Shared/Footer/Footer";
 import NavBar from "../pages/Shared/NavBar/NavBar";
+import { useContext} from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import Container from "../Container";
+
 
 const Main = () => {
+  const {darkMode } = useContext(AuthContext);
+ 
   return (
-    <div>
+   
+      <div className={darkMode? "dark":""}>
+      <div className="dark:bg-gray-800">
       <NavBar></NavBar>
-      <Outlet></Outlet>
+      <Container>
+        <Outlet></Outlet>
+      </Container>
       <Footer></Footer>
+      </div>
     </div>
+  
   );
 };
 

@@ -7,7 +7,7 @@ import img1 from "../../assets/home/lang1.jpg";
 import img2 from "../../assets/home/lang2.jpg";
 import img3 from "../../assets/home/lang3.jpg";
 import img4 from "../../assets/home/lang4.jpg";
-import Container from "../../Container";
+
 
 
 
@@ -18,7 +18,7 @@ const ExtraSection = () => {
     });
   }, []);
   return (
-    <Container>
+    <div>
       <h2 className="text-5xl text-center py-12">What do we offer?</h2>
       <div className="my-10 md:flex justify-center items-center gap-8">
         <div className="mx-auto text-3xl">
@@ -32,7 +32,7 @@ const ExtraSection = () => {
             </div>
           </Fade>
         </div>
-        <div className=" grid md:grid-cols-2 gap-4 p-4 justify-center">
+        <div className=" grid md:grid-cols-2 gap-4 justify-center">
           <div
             data-aos="fade-right"
             data-aos-duration="2000"
@@ -84,7 +84,7 @@ const ExtraSection = () => {
           
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 
