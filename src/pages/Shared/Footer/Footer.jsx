@@ -22,17 +22,17 @@ const Footer = () => {
         <div className="flex justify-between w-full">
           <div>
             <h3 className=" mb-4">Catch Us on Social Platforms</h3>
-            <div className="grid grid-flow-col gap-4">
-              <a href="https://instagram.com/">
+            <div  className="grid grid-flow-col gap-4">
+              <a target="_blank" href="https://instagram.com/">
                 <FaInstagram className="fill-current text-white" size={24} />
               </a>
-              <a href="https://twitter.com/">
+              <a target="_blank" href="https://twitter.com/">
                 <FaTwitter className="fill-current text-white" size={24} />
               </a>
-              <a href="https://youtube.com/">
+              <a target="_blank" href="https://youtube.com/">
                 <FaYoutube className="fill-current text-white" size={24} />
               </a>
-              <a href="https://facebook.com/">
+              <a target="_blank" href="https://facebook.com/">
                 <FaFacebook className="fill-current text-white" size={24} />
               </a>
             </div>
