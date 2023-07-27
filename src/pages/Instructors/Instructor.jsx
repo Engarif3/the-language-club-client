@@ -9,7 +9,7 @@ const Instructor = ({instructor}) => {
   return (
     
       <div>
-        <div className="card  bg-base-100 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:shadow-2xl duration-300">
+        <div className="card  bg-base-100 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
           <figure>
             <img
              className="h-72 w-full rounded-t-lg object-fill"
