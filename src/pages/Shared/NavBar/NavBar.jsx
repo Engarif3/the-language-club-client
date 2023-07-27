@@ -1,6 +1,6 @@
 import logo from "../../../assets/language.png"
 import { useContext } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,NavLink,useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
@@ -48,7 +48,7 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-700 text-neutral-50 rounded-box w-52 "
             >
               <li>
-                <Link to="/">Home</Link>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
                 <Link to="/instructors">Instructors</Link>
@@ -60,31 +60,31 @@ const NavBar = () => {
           </div>
           <div className="hidden md:flex">
 
-          <img src={logo}  alt="logo" className="w-12" />
-          <a className="normal-case text-xl ">The Language Club</a>
+          <Link to="/"><img src={logo}  alt="logo" className="w-12" /></Link>
+          <Link to="/" className="normal-case text-xl ">The Language Club</Link>
           </div>
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="flex gap-6">
             <li>
-              <Link to="/">Home</Link>
+              <NavLink  className=" aria-[current=page]:text-blue-400"  to="/">Home</NavLink>
             </li>
             <li>
-              <Link to="/instructors">Instructors</Link>
+              <NavLink  className=" aria-[current=page]:text-blue-400" to="/instructors">Instructors</NavLink>
             </li>
             <li>
-              <Link to="/classes">Courses</Link>
+              <NavLink  className=" aria-[current=page]:text-blue-400" to="/classes">Courses</NavLink>
             </li>
           </ul>
         </div>
 
         <div>
           {user && (
-            <ul className="menu menu-horizontal px-1">
+            <ul className="md:ml-6 lg:ml-6">
               {isAdmin ? (
               
-                  <li><Link to="/dashboard/adminhome">Dashboard</Link></li>
+                  <li><NavLink className=" aria-[current=page]:text-blue-400" to="/dashboard/adminhome">Dashboard</NavLink></li>
                
               ) : isInstructor ? (
                
@@ -103,7 +103,7 @@ const NavBar = () => {
       
         
        <div className="navbar-end space-x-4">
-       {darkMode?<BsSun onClick={handleDarkMode} className="animate-bounce hover:cursor-pointer"></BsSun> :<FaMoon onClick={handleDarkMode} className="animate-bounce hover:cursor-pointer"></FaMoon>}
+       {darkMode?<BsSun onClick={handleDarkMode} className="animate-bounce hover:cursor-pointer md:ml-0 lg:ml-0 ml-4"></BsSun> :<FaMoon onClick={handleDarkMode} className="animate-bounce hover:cursor-pointer md:ml-0 lg:ml-0 ml-4"></FaMoon>}
        
        {
           user&& <div className="hidden md:block lg:block "><button className="btn btn-sm btn-circle tooltip z-20 tooltip-bottom hover:scale-105" data-tip={user.displayName}>
