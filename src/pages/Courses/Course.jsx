@@ -59,7 +59,7 @@ const Course = ({ course }) => {
           <figure>
             <img className="h-64 w-full rounded-t-lg object-fit" src={classImage} alt="Instructor Image" />
           </figure>
-          <div className="card-body h-[12rem] ">
+          <div className="card-body h-[13rem] ">
             <h2 className="card-title">Course Name: {nameClass}</h2>
             <p>Instructor Name: {instructorName}</p>
             <p>Available Seats: {seats}</p>
@@ -67,7 +67,7 @@ const Course = ({ course }) => {
 
             <div className="card-actions justify-end relative">
               {(!isInstructor && !isAdmin) && (
-                <button className="btn btn-primary absolute bottom-1" onClick={handleSelect}>
+                <button className="btn btn-sm btn-primary absolute bottom-1" onClick={handleSelect}>
                   Select
                 </button>
               )}

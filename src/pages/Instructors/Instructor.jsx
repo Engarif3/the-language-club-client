@@ -17,7 +17,7 @@ const Instructor = ({instructor}) => {
               alt="Instructor Image"
             />
           </figure>
-          <div className="card-body md:h-[8rem] lg:h-[8rem] h-[10rem]">
+          <div className="card-body h-[10rem]">
             <h2 className="card-title">Name:{name}</h2>
             <p>Email: {email}</p>
           </div>

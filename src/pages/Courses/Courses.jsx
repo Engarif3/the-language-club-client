@@ -28,7 +28,7 @@ const Courses = () => {
                 <title>The Language Club | Courses</title>
             </Helmet>
             <h2 className={darkMode?"text-neutral-50 text-5xl text-center py-12":"text-5xl text-center py-12"}>All Courses</h2>
-            <div className='grid md:grid-cols-4 gap-8 px-12'>
+            <div className='grid md:grid-cols-4 gap-8'>
             {
                 instructorUsers.map(course => <Course key={course._id} course={course} ></Course> )
             }

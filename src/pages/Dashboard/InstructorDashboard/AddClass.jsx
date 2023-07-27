@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
+  const navigate = useNavigate();
 const {user} = useAuth();
   const {
     register,
@@ -42,6 +44,7 @@ const {user} = useAuth();
             timer: 1500,
           });
         }
+        navigate("/dashboard/myclass")
       });
   };
 
