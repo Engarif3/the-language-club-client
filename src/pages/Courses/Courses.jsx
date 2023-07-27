@@ -4,10 +4,11 @@ import Course from './Course';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Loader from '../../components/Loader/Loader';
+import useAuth from '../../hooks/useAuth';
 
 
 const Courses = () => {
-   
+  const {darkMode} = useAuth();
   const [loading, setLoading] = useState([]);  
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(['classes'], async () => {
@@ -26,7 +27,7 @@ const Courses = () => {
             <Helmet>
                 <title>The Language Club | Courses</title>
             </Helmet>
-            <h2 className='text-5xl text-center py-12'>All Courses</h2>
+            <h2 className={darkMode?"text-neutral-50 text-5xl text-center py-12":"text-5xl text-center py-12"}>All Courses</h2>
             <div className='grid md:grid-cols-3 gap-8 px-12'>
             {
                 instructorUsers.map(course => <Course key={course._id} course={course} ></Course> )

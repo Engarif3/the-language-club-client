@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Instructor from './Instructor';
 import Loader from '../../components/Loader/Loader';
+import useAuth from '../../hooks/useAuth';
 
 const Instructors = () => {
+  const {darkMode} = useAuth();
   const [instructors, setInstructors] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -30,7 +32,7 @@ const Instructors = () => {
       <Helmet>
         <title>The Language Club | Instructors</title>
       </Helmet>
-      <h2 className="text-5xl text-center py-12">All Instructors Information</h2>
+      <h2 className={darkMode?"text-neutral-50 text-5xl text-center py-12":"text-5xl text-center py-12"}>All Instructors Information</h2>
       <div className="grid md:grid-cols-3 gap-8">
         {instructors.map(instructor => (
           <Instructor key={instructor._id} instructor={instructor} />
