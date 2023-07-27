@@ -7,6 +7,7 @@ import useInstructor from "../../../hooks/useInstructor";
 import Container from "../../../Container";
 import { FaMoon } from "react-icons/fa";
 import { BsSun} from "react-icons/bs";
+import DashboardButton from "./DashboardButton";
 
 const NavBar = () => {
   const { user, logOut, handleDarkMode, darkMode } = useContext(AuthContext);
@@ -29,8 +30,9 @@ const NavBar = () => {
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
+              
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 mb-3"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -83,16 +85,14 @@ const NavBar = () => {
           {user && (
             <ul className="md:ml-6 lg:ml-6 text-red-600 font-semibold">
               {isAdmin ? (
-              
-                  <li><NavLink className=" aria-[current=page]:text-blue-400" to="/dashboard/adminhome">Dashboard</NavLink></li>
+                  <DashboardButton url={"/dashboard/adminhome"}></DashboardButton>
+                  
                
               ) : isInstructor ? (
-               
-                  <li><Link to="/dashboard/instructorhome">Dashboard</Link></li>
+                <DashboardButton url={"/dashboard/instructorhome"}></DashboardButton>
                 
               ) : (
-                
-                  <li><Link to="/dashboard/userhome">Dashboard</Link></li>
+                <DashboardButton url={"/dashboard/userhome"}></DashboardButton>
                
               )}
             </ul>
@@ -127,6 +127,7 @@ const NavBar = () => {
       </div>
       </Container>
       <hr className="h-px  bg-gray-300 border-0 dark:bg-gray-700"></hr>
+      
     </div>
   );
 };
