@@ -3,8 +3,9 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
-import { FaMoon } from "react-icons/fa";
 import Container from "../../../Container";
+import { FaMoon } from "react-icons/fa";
+import { BsSun} from "react-icons/bs";
 
 const NavBar = () => {
   const { user, logOut, handleDarkMode, darkMode } = useContext(AuthContext);
@@ -99,7 +100,8 @@ const NavBar = () => {
       
         
        <div className="navbar-end space-x-4">
-       <FaMoon onClick={handleDarkMode}></FaMoon>
+       {darkMode?<BsSun onClick={handleDarkMode} className="animate-bounce hover:cursor-pointer"></BsSun> :<FaMoon onClick={handleDarkMode} className="animate-bounce hover:cursor-pointer"></FaMoon>}
+       
        {
           user&& <div className="hidden md:block lg:block "><button className="btn btn-sm btn-circle tooltip z-20 tooltip-bottom hover:scale-105" data-tip={user.displayName}>
           <img
