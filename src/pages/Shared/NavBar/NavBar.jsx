@@ -20,9 +20,10 @@ const NavBar = () => {
 
 
   return (
-    <div className={darkMode? "dark":""}>
+    <div className={darkMode?" text-neutral-50 bg-slate-800":"bg-indigo-50"} >
+  
       <Container>
-      <div className="navbar bg-indigo-50 dark:text-neutral-50 dark:bg-slate-800">
+      <div className="navbar ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,9 +57,9 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
-          <div className="md:block lg:block hidden p-0 m-0">
+          <div className="md:block lg:block hidden ">
 
-          <a className="btn btn-ghost  normal-case text-xl text-center my-auto">The Language Club</a>
+          <a className="normal-case text-xl ">The Language Club</a>
           </div>
         </div>
 
@@ -123,6 +124,7 @@ const NavBar = () => {
         
       </div>
       </Container>
+   
     </div>
   );
 };
