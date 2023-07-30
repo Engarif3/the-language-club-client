@@ -105,7 +105,7 @@ const Contact = () => {
             {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
             <button
-              className="btn btn-outline btn-secondary   mb-12"
+              className="btn  btn-secondary   mb-12"
               type="submit"
             >
               Submit
