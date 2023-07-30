@@ -2,8 +2,12 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import img from "../../assets/contact.png";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Contact = () => {
+
+  const {darkMode} = useAuth();
   const form = useRef();
   const {
     register,
@@ -23,6 +27,13 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your appointment booked successfully ',
+            showConfirmButton: false,
+            timer: 1500
+          })
         },
         (error) => {
           console.log(error.text);
@@ -32,15 +43,15 @@ const Contact = () => {
 
   return (
     <div id='contact'>
-      <h2 className="text-3xl text-center text-orange-600 pl-24 font-bold my-8">
+      <h2 className="text-3xl text-center text-orange-600 md:pl-36 px-8 md:px-0  font-bold my-8">
         Please provide your contact details
       </h2>
       <div className="md:flex justify-start items-start ">
-        <div className="my-12 md:w-4/12  md:flex flex-col items-start gap-4 ">
-          <div className="mx-auto">
-          <img className="md:w-4/12 text-center" src={img} alt="" />
+        <div className="my-12 md:w-4/12  flex flex-col items-center md:items-start  gap-4 ">
+          <div className="mx-auto ">
+          <img className="w-10/12 md:w-5/12 text-center ml-8  p-8 md:p-0" src={img} alt="" />
           </div>
-          <div className="text-white text-start ">
+          <div className={darkMode?"text-white text-start ":"text-slate-900 text-start "}>
           <p>Name: Md Arifur Rahman</p>
           <p>Email: arif.aust.eng@gmail.com</p>
           <p>Mobile: +49-15203555728</p>
@@ -53,7 +64,7 @@ const Contact = () => {
           <form
             ref={form}
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-4  text-white mx-auto"
+            className="flex flex-col gap-4  text-white mx-auto w-8/12"
           >
             {/* register your input into the hook by invoking the "register" function */}
             <input
