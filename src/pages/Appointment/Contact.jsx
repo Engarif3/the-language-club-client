@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import img from "../../assets/contact.png";
@@ -13,10 +13,11 @@ const Contact = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+
     emailjs
       .sendForm(
         "service_339zzyo",
@@ -26,7 +27,7 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+        //   console.log(result.text);
           Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -34,12 +35,15 @@ const Contact = () => {
             showConfirmButton: false,
             timer: 1500
           })
+          reset();
         },
         (error) => {
           console.log(error.text);
         }
       );
   };
+
+
 
   return (
     <div id='contact'>
@@ -70,23 +74,27 @@ const Contact = () => {
             <input
               className="bg-transparent input input-bordered input-secondary "
               type="text"
+              required
               placeholder="Enter your name"
               {...register("name")}
             />
             <input
               className="bg-transparent input input-bordered input-secondary"
               type="email"
+              required
               placeholder="Enter your email"
               {...register("email")}
             />
             <input
               className="bg-transparent input input-bordered input-secondary"
               type="text"
+              required
               placeholder="Enter your Number"
               {...register("number")}
             />
             <textarea
               className="textarea textarea-secondary bg-transparent"
+              required
               placeholder="Enter your message"
               {...register("message")}
             ></textarea>
