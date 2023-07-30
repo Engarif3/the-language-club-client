@@ -9,7 +9,7 @@ const ManageUsers = () => {
   const [loading, setLoading] = useState([]);
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     setLoading(true)
-    const res = await fetch("https://assignment-12-server-woad.vercel.app/users");
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/users`);
     setLoading(false)
     return res.json();
   });
@@ -24,7 +24,7 @@ const ManageUsers = () => {
       cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assignment-12-server-woad.vercel.app/users/admin/${user._id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/users/admin/${user._id}`, {
           method: "PATCH",
         })
           .then((res) => res.json())
@@ -55,7 +55,7 @@ const ManageUsers = () => {
       cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assignment-12-server-woad.vercel.app/users/instructor/${user._id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/${user._id}`, {
           method: "PATCH",
         })
           .then((res) => res.json())

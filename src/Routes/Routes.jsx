@@ -24,6 +24,8 @@ import MySelectedClasses from "../pages/Dashboard/UserDashboard/MySelectedClasse
 import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasses";
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory";
 import UpdateClass from "../pages/Dashboard/InstructorDashboard/UpdateClass";
+import Appointment from "../pages/Appointment/Appointment";
+
 
 
 
@@ -44,6 +46,10 @@ import UpdateClass from "../pages/Dashboard/InstructorDashboard/UpdateClass";
         {
           path: 'classes',
           element: <Courses></Courses>
+        },
+        {
+          path: 'appointment',
+          element: <Appointment></Appointment>
         },
         {
           path: 'login',

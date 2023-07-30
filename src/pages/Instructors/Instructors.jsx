@@ -11,7 +11,7 @@ const Instructors = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://assignment-12-server-woad.vercel.app/users")
+    fetch(`${import.meta.env.VITE_API_URL}/users`)
       .then(res => res.json())
       .then(data => {
         const filteredInstructors = data.filter(user => user.role === "instructor");

@@ -34,7 +34,7 @@ const SignUp = () => {
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           const saveUser = { name: data.name, email: data.email, photo: data.photoURL };
-          fetch("https://assignment-12-server-woad.vercel.app/users", {
+          fetch(`${import.meta.env.VITE_API_URL}/users`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

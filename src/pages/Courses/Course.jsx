@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
 import Container from '../../Container';
+import { swal } from 'sweetalert2';
 
 const Course = ({ course }) => {
   const [isAdmin] = useAdmin();
@@ -19,7 +20,7 @@ const Course = ({ course }) => {
   const handleSelect = () => {
     if (user) {
       const saveBookings = { courseName: nameClass, instructorName: instructorName, email: email, seats: seats, price: price, user: user.email };
-      fetch("https://assignment-12-server-woad.vercel.app/bookings", {
+      fetch(`${import.meta.env.VITE_API_URL}/bookings`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -40,7 +41,7 @@ const Course = ({ course }) => {
           }
         });
     } else {
-      SweetAlert.fire({
+      Swal.fire({
         text: 'Please login to select a course',
         icon: 'warning',
         showCancelButton: true,

@@ -16,7 +16,7 @@ const SocialLogin = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('https://assignment-12-server-woad.vercel.app/users', {
+                fetch(`${import.meta.env.VITE_API_URL}/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

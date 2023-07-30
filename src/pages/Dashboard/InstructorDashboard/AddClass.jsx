@@ -24,7 +24,7 @@ const {user} = useAuth();
       price: parseFloat(data.price),
       status:"pending"
     };
-    fetch("https://assignment-12-server-woad.vercel.app/classes", {
+    fetch(`${import.meta.env.VITE_API_URL}/classes`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
