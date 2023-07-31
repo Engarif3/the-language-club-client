@@ -48,9 +48,9 @@ const Login = () => {
         <title>The Language Club | Login</title>
       </Helmet>
 
-      <div className="hero md:min-h-screen lg:min-h-screen my-8">
-        <div className="card shadow-2xl bg-base-100">
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+      <div className="hero md:min-h-screen lg:min-h-screen my-8 flex justify-center">
+        <div className="card shadow-2xl bg-base-100 w-4/12">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body w-full">
             <h2 className='text-4xl text-center'>Please Login</h2>
             <div className="form-control">
               <label className="label">
