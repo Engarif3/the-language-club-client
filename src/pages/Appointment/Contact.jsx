@@ -57,16 +57,18 @@ const Contact = ({item}) => {
 
   return (
     <div id='contact'>
-      <div className="md:flex justify-between items-start ">
-        <div className="my-12 md:w-4/12  flex flex-col items-center md:items-start  gap-4 ">
-          <div className="mx-auto h-48 w-48 rounded-full">
-          <img className="  text-center rounded-full " src={instructorPhoto} alt="" />
+      <div className="flex flex-col-reverse md:flex-row justify-between items-center md:items-start">
+        <div className="my-12 md:w-4/12  flex flex-col items-center md:items-start  gap-4 md:ml-20 ">
+          <div className="mx-auto  rounded-full">
+          <div>
+          <img className="  rounded-full h-48 w-48 md:mt-12 md:mr-20" src={instructorPhoto} alt="" />
           </div>
-          <div className={darkMode?"text-white text-start ":"text-slate-900 text-start "}>
-          <p>Name: {instructorName}</p>
+          </div>
+          <div className={darkMode?"text-white text-start md:mt-2":"text-slate-900 text-start md:mt-2"}>
+          <p className="text-xl text-orange-600">Name: {instructorName}</p>
           <p>Email: {instructorEmail}</p>
           <p>Mobile: +49-15203555728</p>
-          <p>Address: Reichenhainer Str.51 / 423</p>
+          <p>Reichenhainer Str.51 / 423</p>
           <p>09126, Chemnitz</p>
           <p>Germany</p>
           </div>
@@ -112,7 +114,7 @@ const Contact = ({item}) => {
             {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
             <button
-              className="btn  btn-secondary   mb-12 hidden md:block "
+              className="btn  btn-secondary mb-12 "
               type="submit"
             >
               Submit
@@ -120,15 +122,9 @@ const Contact = ({item}) => {
           </form>
          
         </div>
-        <div className="bg-white rounded-xl border-[1px] border-red-600 overflow-hidden   md:w-5/12  flex justify-center items-center  md:py-8 m-16 md:m-20">
+        <div className="bg-white rounded-xl border-[1px] border-red-600 overflow-hidden md:w-5/12  flex justify-center items-center  py-8 m-16 md:m-20">
           <div>
             <Calender></Calender>
-            <button
-              className="btn  btn-secondary w-full   mb-4 block md:hidden "
-              type="submit"
-            >
-              Submit
-            </button>
           </div>
         </div>
       </div>
