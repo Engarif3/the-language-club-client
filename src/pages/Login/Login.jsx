@@ -43,23 +43,23 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className='md:w-8/12 mx-auto'>
       <Helmet>
         <title>The Language Club | Login</title>
       </Helmet>
 
-      <div className="hero md:min-h-screen lg:min-h-screen my-8 flex justify-center">
-        <div className="card shadow-2xl bg-base-100 w-4/12">
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body w-full">
+      <div className="  my-8 flex justify-center items-center">
+        <div className=" shadow-2xl bg-base-100 md:w-4/12 w-full md:mx-0 rounded-lg ">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body py-0">
             <h2 className='text-4xl text-center'>Please Login</h2>
-            <div className="form-control">
-              <label className="label">
+            <div className="form-control py-0 my-0">
+              <label className="label py-0">
                 <span className="label-text">Email</span>
               </label>
               <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
             </div>
             <div className="form-control">
-              <label className="label">
+              <label className="label py-0">
                 <span className="label-text">Password</span>
               </label>
               <div className="relative">
@@ -89,7 +89,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

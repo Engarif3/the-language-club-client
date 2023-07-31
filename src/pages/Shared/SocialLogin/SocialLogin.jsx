@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -31,13 +31,12 @@ const SocialLogin = () => {
     }
 
     return (
-        
-            <div className="w-full text-center">
-                <button onClick={handleGoogleSignIn} className="btn w-full">
-                    <FaGoogle className="text-primary text-2xl"></FaGoogle>
+ 
+                <button onClick={handleGoogleSignIn} className="btn  flex justify-center items-center">
+                    <FcGoogle size={26}></FcGoogle>
+                    <p>Continue with Google</p>
                 </button>
-            </div>
-    
+
     );
 };
 
