@@ -50,7 +50,7 @@ const Login = () => {
 
       <div className="  my-8 flex justify-center items-center">
         <div className=" shadow-2xl bg-base-100 md:w-4/12 w-full md:mx-0 rounded-lg ">
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body py-0">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body py-0 my-8">
             <h2 className='text-4xl text-center'>Please Login</h2>
             <div className="form-control py-0 my-0">
               <label className="label py-0">

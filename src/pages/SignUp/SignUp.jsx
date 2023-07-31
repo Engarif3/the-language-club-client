@@ -13,7 +13,7 @@ const SignUp = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -29,7 +29,6 @@ const SignUp = () => {
 
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      // console.log(loggedUser);
 
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
@@ -52,7 +51,8 @@ const SignUp = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
-                navigate("/");
+                logOut();
+                navigate("/login");
               }
             });
         })
@@ -61,16 +61,16 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <div className='md:w-8/12 mx-auto'>
       <Helmet>
         <title>The Language Club | Sign Up</title>
       </Helmet>
-      <div className="hero md:min-h-screen lg:min-h-screen my-8">
-        <div className="card p-0 shadow-2xl bg-base-100">
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body mt-0">
+      <div className="  my-8 flex justify-center items-center">
+        <div className=" shadow-2xl bg-base-100 md:w-4/12 w-full md:mx-0 rounded-lg ">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body py-0 my-8">
             <h2 className="text-xl text-center">Please Register</h2>
-            <div className="form-control -mb-8">
-              <label className="label">
+            <div className="form-control py-0 -my-4">
+              <label className="label py-0">
                 <span className="label-text">Name</span>
               </label>
               <input
@@ -86,7 +86,7 @@ const SignUp = () => {
             </div>
             <div className="form-control -mb-8">
               <label className="label">
-                <span className="label-text">Photo URL</span>
+                <span className="label-text -py-8 -my-8">Photo URL</span>
               </label>
               <input
                 type="text"
@@ -99,7 +99,7 @@ const SignUp = () => {
               )}
             </div>
             <div className="form-control -mb-8">
-              <label className="label">
+              <label className="label py-0">
                 <span className="label-text">Email</span>
               </label>
               <input
@@ -114,7 +114,7 @@ const SignUp = () => {
               )}
             </div>
             <div className="form-control -mb-8">
-              <label className="label">
+              <label className="label py-0">
                 <span className="label-text">Password</span>
               </label>
               <input
@@ -147,7 +147,7 @@ const SignUp = () => {
               )}
             </div>
             <div className="form-control -mb-8">
-              <label className="label">
+              <label className="label py-0">
                 <span className="label-text">Confirm Password</span>
               </label>
               <input
@@ -161,14 +161,14 @@ const SignUp = () => {
                 <span className="text-red-600">Confirm Password is required</span>
               )}
             </div>
-            <div className="form-control mt-2">
+            <div className="form-control mt-4">
               <input
                 className="btn btn-primary"
                 type="submit"
                 value="Sign Up"
               />
             </div>
-            <p className="text-center">
+            <p className="text-center -my-4">
               <small>
                 Already have an account?
                 <Link to="/login">
@@ -180,7 +180,7 @@ const SignUp = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
