@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 // import emailjs from "@emailjs/browser";
-// import img from "../../assets/contact.png";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import Calender from "./Calender";
 
 const Contact = ({item}) => {
 
@@ -57,13 +57,10 @@ const Contact = ({item}) => {
 
   return (
     <div id='contact'>
-      <h2 className="text-3xl text-center text-orange-600 md:pl-36 px-8 md:px-0  font-bold my-8">
-        Please provide your contact details
-      </h2>
-      <div className="md:flex justify-start items-start ">
+      <div className="md:flex justify-between items-start ">
         <div className="my-12 md:w-4/12  flex flex-col items-center md:items-start  gap-4 ">
-          <div className="mx-auto ">
-          <img className="w-10/12 md:w-5/12 text-center ml-8  p-8 md:p-0" src={instructorPhoto} alt="" />
+          <div className="mx-auto h-48 w-48 rounded-full">
+          <img className="  text-center rounded-full " src={instructorPhoto} alt="" />
           </div>
           <div className={darkMode?"text-white text-start ":"text-slate-900 text-start "}>
           <p>Name: {instructorName}</p>
@@ -115,14 +112,27 @@ const Contact = ({item}) => {
             {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
             <button
-              className="btn  btn-secondary   mb-12"
+              className="btn  btn-secondary   mb-12 hidden md:block "
               type="submit"
             >
               Submit
             </button>
           </form>
+         
+        </div>
+        <div className="bg-white rounded-xl border-[1px] border-red-600 overflow-hidden   md:w-5/12  flex justify-center items-center  md:py-8 m-16 md:m-20">
+          <div>
+            <Calender></Calender>
+            <button
+              className="btn  btn-secondary w-full   mb-4 block md:hidden "
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
+      
     </div>
   );
 };
