@@ -4,6 +4,10 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import Calender from "./Calender";
+import { MdLocationCity, MdLocationOn, MdOutlineAttachEmail } from "react-icons/md";
+import { FaMobile } from "react-icons/fa";
+
+
 
 const Contact = ({item}) => {
 
@@ -57,20 +61,20 @@ const Contact = ({item}) => {
 
   return (
     <div id='contact'>
-      <div className="flex flex-col-reverse md:flex-row justify-between items-center md:items-start">
+      <div className="flex flex-col-reverse md:flex-row justify-between items-center md:items-start md:border md:mb-12 md:border-cyan-900">
         <div className="my-12 md:w-4/12  flex flex-col items-center md:items-start  gap-4 md:ml-20 ">
           <div className="mx-auto  rounded-full">
           <div>
-          <img className="  rounded-full h-48 w-48 md:mt-12 md:mr-20" src={instructorPhoto} alt="" />
+          <img className="  rounded-full h-48 w-48 md:mt-10 md:mr-20" src={instructorPhoto} alt="" />
           </div>
           </div>
           <div className={darkMode?"text-white text-start md:mt-2":"text-slate-900 text-start md:mt-2"}>
-          <p className="text-xl text-orange-600">Name: {instructorName}</p>
-          <p>Email: {instructorEmail}</p>
-          <p>Mobile: +49-15203555728</p>
-          <p>Reichenhainer Str.51 / 423</p>
-          <p>09126, Chemnitz</p>
-          <p>Germany</p>
+          <p className="text-xl text-center text-orange-600 mb-4 mr-4 italic"> {instructorName}</p>
+          <p className="flex items-center gap-2"> <MdOutlineAttachEmail className="text-rose-500"></MdOutlineAttachEmail> {instructorEmail}</p>
+          <p className="flex items-center gap-2"><FaMobile className="text-rose-500"></FaMobile> +49-15203555728</p>
+          <p className="flex items-center gap-2"><MdLocationCity className="text-rose-500"></MdLocationCity> Reichenhainer Str.51 / 423</p>
+          <p className="flex items-center gap-2"><MdLocationOn className="text-rose-500"></MdLocationOn>09126, Chemnitz</p>
+          <p className="ml-6">Germany</p>
           </div>
         </div>
         <div>
@@ -122,7 +126,7 @@ const Contact = ({item}) => {
           </form>
          
         </div>
-        <div className="bg-white rounded-xl border-[1px] border-red-600 overflow-hidden md:w-5/12  flex justify-center items-center  py-8 m-16 md:m-20">
+        <div className="bg-[#f0f9ff] rounded-lg border-[1px] border-cyan-900 shadow-2xl overflow-hidden md:w-5/12  flex justify-center items-center  py-4 m-8 md:m-20">
           <div>
             <Calender></Calender>
           </div>

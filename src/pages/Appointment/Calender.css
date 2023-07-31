@@ -5,4 +5,28 @@
 .rdrYearPicker {
     width: 100px;
 }
+.rdrMonth {
+    background-color: #f0f9ff;
+}
+.rdrDay  {
+    background-color: #f0f9ff;
+}
+.rdrMonthAndYearWrapper  {
+    background-color: #f0f9ff;
+    
+}
+.rdrMonthAndYearWrapper select  {
+    padding: 0;
+    
+}
+.rdrNextPrevButton ,.rdrPprevButton {
+   margin-bottom: 10px;
+    
+}
+
+/* .rdrMonthAndYearWrapper select option  {
+    color:white;
+    background-color: #374151;
+    
+}  */
 
