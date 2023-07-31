@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import {BsFillArrowRightCircleFill} from "react-icons/bs";
 import InstructorModal from "../../../components/Modal/InstructorModal";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 
 const PopularInstructor = ({item}) => {
+
   const navigate = useNavigate();
   const [modal,setModal] = useState(false);
   const [isOpen,setIsOpen] = useState(false);
   const {instructorName,instructorPhoto, instructorEmail, seats} = item;
-  
-  const modalHandler =()=> {
-        navigate("/appointment")
-  }
+
   const closeModal =()=> {
         setModal(false)
   }
@@ -33,9 +31,9 @@ const PopularInstructor = ({item}) => {
           <p>Email: {instructorEmail}</p>
           <p>Students: {seats}</p>
         </div>
-          <BsFillArrowRightCircleFill onClick={()=>setModal(true)} size={28}  className="absolute bottom-6 right-8 text-purple-600 cursor-pointer hover:scale-105"></BsFillArrowRightCircleFill>
+         <BsFillArrowRightCircleFill onClick={()=>setModal(true)} size={28}  className="absolute bottom-6 right-8 text-purple-600 cursor-pointer hover:scale-105"></BsFillArrowRightCircleFill>
       </div>
-      <InstructorModal modalHandler={modalHandler} isOpen={modal} closeModal={closeModal}  item={item}></InstructorModal>
+      <InstructorModal  isOpen={modal} closeModal={closeModal}  item={item}></InstructorModal>
     </div>
   );
 };

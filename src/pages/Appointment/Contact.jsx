@@ -1,12 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
-import img from "../../assets/contact.png";
+// import emailjs from "@emailjs/browser";
+// import img from "../../assets/contact.png";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
-const Contact = () => {
+const Contact = ({item}) => {
 
+  const {instructorName,instructorPhoto, instructorEmail, seats} = item;
   const {darkMode} = useAuth();
   const form = useRef();
   const {
@@ -18,29 +19,38 @@ const Contact = () => {
   } = useForm();
   const onSubmit = (data) => {
 
-    emailjs
-      .sendForm(
-        "service_339zzyo",
-        "template_opsy1so",
-        form.current,
-        "JYmbcbb9qXSLOn_sQ"
-      )
-      .then(
-        (result) => {
-        //   console.log(result.text);
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your appointment booked successfully ',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          reset();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    // emailjs
+    //   .sendForm(
+    //     "service_339zzyo",
+    //     "template_opsy1so",
+    //     form.current,
+    //     "JYmbcbb9qXSLOn_sQ"
+    //   )
+    //   .then(
+    //     (result) => {
+    //     //   console.log(result.text);
+    //       Swal.fire({
+    //         position: 'top-end',
+    //         icon: 'success',
+    //         title: 'Your appointment booked successfully ',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //       })
+    //       reset();
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   );
+       
+           Swal.fire({
+             position: 'top-end',
+             icon: 'success',
+             title: 'Your appointment booked successfully ',
+             showConfirmButton: false,
+             timer: 1500
+           })
+           reset();
   };
 
 
@@ -53,11 +63,11 @@ const Contact = () => {
       <div className="md:flex justify-start items-start ">
         <div className="my-12 md:w-4/12  flex flex-col items-center md:items-start  gap-4 ">
           <div className="mx-auto ">
-          <img className="w-10/12 md:w-5/12 text-center ml-8  p-8 md:p-0" src={img} alt="" />
+          <img className="w-10/12 md:w-5/12 text-center ml-8  p-8 md:p-0" src={instructorPhoto} alt="" />
           </div>
           <div className={darkMode?"text-white text-start ":"text-slate-900 text-start "}>
-          <p>Name: Md Arifur Rahman</p>
-          <p>Email: arif.aust.eng@gmail.com</p>
+          <p>Name: {instructorName}</p>
+          <p>Email: {instructorEmail}</p>
           <p>Mobile: +49-15203555728</p>
           <p>Address: Reichenhainer Str.51 / 423</p>
           <p>09126, Chemnitz</p>

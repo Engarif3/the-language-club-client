@@ -1,12 +1,10 @@
 import React from 'react';
-import SweetAlert from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
-import Container from '../../Container';
-import { swal } from 'sweetalert2';
+
 
 const Course = ({ course }) => {
   const [isAdmin] = useAdmin();

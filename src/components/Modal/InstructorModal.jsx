@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-const InstructorModal = ({ modalHandler, closeModal, isOpen, item,email }) => {
+import { Link } from 'react-router-dom';
+const InstructorModal = ({ closeModal, isOpen, item }) => {
   
   const {instructorName,instructorPhoto, instructorEmail, seats} = item;
   return (
@@ -54,13 +55,14 @@ const InstructorModal = ({ modalHandler, closeModal, isOpen, item,email }) => {
                 </div>
                 <hr className='mt-8 ' />
                 <div className='flex mt-2 justify-around'>
+                  <Link to={`/appointment/${item._id}`} state={{item:item}}>
                   <button
                     type='button'
                     className='inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2'
-                    onClick={modalHandler}
                   >
                     Continue
                   </button>
+                  </Link>
                   <button
                     type='button'
                     className='inline-flex justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-red-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2'
