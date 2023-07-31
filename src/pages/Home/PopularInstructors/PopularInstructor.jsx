@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import {BsFillArrowRightCircleFill} from "react-icons/bs";
+// import {BsFillArrowRightCircleFill} from "react-icons/bs";
+import {IoIosArrowDropright} from "react-icons/io";
 import InstructorModal from "../../../components/Modal/InstructorModal";
 import { Link, useNavigate} from "react-router-dom";
 
@@ -31,7 +32,8 @@ const PopularInstructor = ({item}) => {
           <p>Email: {instructorEmail}</p>
           <p>Students: {seats}</p>
         </div>
-         <BsFillArrowRightCircleFill onClick={()=>setModal(true)} size={28}  className="absolute bottom-6 right-8 text-purple-600 cursor-pointer hover:scale-105"></BsFillArrowRightCircleFill>
+         <IoIosArrowDropright onClick={()=>setModal(true)} size={32}  className="absolute bottom-6 right-8 text-neutral-400 cursor-pointer hover:text-slate-700 hover:scale-105"></IoIosArrowDropright>
+         {/* <BsFillArrowRightCircleFill onClick={()=>setModal(true)} size={28}  className="absolute bottom-6 right-8 text-purple-600 cursor-pointer hover:scale-105"></BsFillArrowRightCircleFill> */}
       </div>
       <InstructorModal  isOpen={modal} closeModal={closeModal}  item={item}></InstructorModal>
     </div>

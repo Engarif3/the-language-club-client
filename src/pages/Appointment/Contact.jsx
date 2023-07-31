@@ -81,28 +81,28 @@ const Contact = ({item}) => {
           >
             {/* register your input into the hook by invoking the "register" function */}
             <input
-              className="bg-transparent input input-bordered input-secondary "
+              className={darkMode?"bg-transparent text-white input input-bordered input-secondary ":"bg-transparent text-black input input-bordered input-secondary "}
               type="text"
               required
               placeholder="Enter your name"
               {...register("name")}
             />
             <input
-              className="bg-transparent input input-bordered input-secondary"
+              className={darkMode?"bg-transparent text-white input input-bordered input-secondary ":"bg-transparent text-black input input-bordered input-secondary "}
               type="email"
               required
               placeholder="Enter your email"
               {...register("email")}
             />
             <input
-              className="bg-transparent input input-bordered input-secondary"
-              type="text"
+              className={darkMode?"bg-transparent text-white input input-bordered input-secondary ":"bg-transparent text-black input input-bordered input-secondary "}
+              type="tel"
               required
               placeholder="Enter your Number"
               {...register("number")}
             />
             <textarea
-              className="textarea textarea-secondary bg-transparent"
+              className={darkMode?"bg-transparent text-white textarea textarea-secondary ":"bg-transparent text-black textarea textarea-secondary"}
               required
               placeholder="Enter your message"
               {...register("message")}
