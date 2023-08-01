@@ -18,22 +18,21 @@ const PopularInstructor = ({item}) => {
   return (
     <div>
        
-       {/* <div className="card  bg-slate-700 shadow-xl relative text-neutral-50"></div> */}
-      <div className="card  bg-base-100 shadow-xl relative">
+      <div className="card  bg-base-100 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
         <figure>
           <img
-            className="h-80 w-11/12 rounded-lg object-fit m-4"
+            className="h-72 w-full rounded-t-lg object-fill"
             src={instructorPhoto}
             alt="instructor"
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body h-[10rem]">
           <h2 className="card-title">{instructorName}</h2>
           <p>Email: {instructorEmail}</p>
           <p>Students: {seats}</p>
         </div>
          <IoIosArrowDropright onClick={()=>setModal(true)} size={32}  className="absolute bottom-6 right-8 text-neutral-400 cursor-pointer hover:text-slate-700 hover:scale-105"></IoIosArrowDropright>
-         {/* <BsFillArrowRightCircleFill onClick={()=>setModal(true)} size={28}  className="absolute bottom-6 right-8 text-purple-600 cursor-pointer hover:scale-105"></BsFillArrowRightCircleFill> */}
+
       </div>
       <InstructorModal  isOpen={modal} closeModal={closeModal}  item={item}></InstructorModal>
     </div>
