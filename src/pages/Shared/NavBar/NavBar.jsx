@@ -53,10 +53,10 @@ const NavBar = () => {
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <Link to="/instructors">Instructors</Link>
+                <Link to="/instructors">All Instructors</Link>
               </li>
               <li>
-                <Link to="/classes">Courses</Link>
+                <Link to="/classes">All Courses</Link>
               </li>
             </ul>
           </div>
@@ -73,10 +73,10 @@ const NavBar = () => {
               <NavLink  className=" aria-[current=page]:text-blue-400"  to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink  className=" aria-[current=page]:text-blue-400" to="/instructors">Instructors</NavLink>
+              <NavLink  className=" aria-[current=page]:text-blue-400" to="/instructors">All Instructors</NavLink>
             </li>
             <li>
-              <NavLink  className=" aria-[current=page]:text-blue-400" to="/classes">Courses</NavLink>
+              <NavLink  className=" aria-[current=page]:text-blue-400" to="/classes">All Courses</NavLink>
             </li>
           </ul>
         </div>

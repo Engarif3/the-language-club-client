@@ -4,7 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hooks/useAuth";
 import Container from "../../Container";
-import stat from "../../assets/stat1.gif";
+import stat from "../../assets/stat3.gif";
 // import stat from "../../assets/stat.gif";
 import "./ChartPie.css"
 
@@ -94,14 +94,14 @@ const ChartPie = () => {
       >
         Students involvement in courses
       </h2>
-      <div className="flex flex-col md:flex-row lg:flex-row justify-center gap-28 items-center  bg-[#281836] rounded-2xl py-28 w-full">
+      <div className="flex flex-col md:flex-row lg:flex-row justify-center gap-12 md:gap-28 items-center  rounded-2xl md:py-20 w-full">
         <div className="rounded-lg md:w-[40rem]">
           <img className="rounded-lg" src={stat} alt="stat gif" />
         </div>
-        <div className="flex flex-col justify-center items-center ml-9 md:ml-0 ">
-          <PieChart width={450} height={450}>
+        <div className="flex flex-col justify-center items-center ml-16 md:ml-0 ">
+          <PieChart width={480} height={480}>
             <Tooltip />
-            <Legend verticalAlign="top" height={64}/>
+            <Legend verticalAlign="top" height={90}/>
             <Pie
               data={data}
               cx={200}
@@ -125,7 +125,7 @@ const ChartPie = () => {
             className={
               darkMode
                 ? "text-white mr-10 mt-8 font-semibold text-lg italic"
-                : "text-black mr-10 font-semibold text-lg italic"
+                : "text-black mr-10 mt-8 font-semibold text-lg italic"
             }
           >
             Course Vs No. of Students
