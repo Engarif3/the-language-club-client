@@ -3,9 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hooks/useAuth";
-import Container from "../../Container";
 import stat from "../../assets/stat3.gif";
-// import stat from "../../assets/stat.gif";
 import "./ChartPie.css"
 
 const ChartPie = () => {

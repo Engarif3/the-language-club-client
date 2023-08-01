@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import accept from "../../../assets/accept.png"
 import deny from "../../../assets/deny.png"
 import forbidden from "../../../assets/forbidden.png"
-import feedback from "../../../assets/feedback.png"
+import feedback from "../../../assets/feedback1.png"
 import Loader from '../../../components/Loader/Loader';
 
 const ManageClass = () => {
@@ -155,7 +155,7 @@ const ManageClass = () => {
                   {classItem.status === 'denied' && (
                     <button
                       onClick={() => handleSendFeedback(classItem._id, index)}
-                      className="btn btn-sm bg-cyan-400 text-xs"
+                      className="btn btn-sm bg-slate-700 text-xs px-2 m-auto"
                     >
                       <img className='h-6 w-6' src={feedback} alt="feedback_image" />
                     </button>
