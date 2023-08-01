@@ -1,23 +1,24 @@
-
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hooks/useAuth";
 import Container from "../../Container";
-
+import stat from "../../assets/stat1.gif";
+// import stat from "../../assets/stat.gif";
+import "./ChartPie.css"
 
 const ChartPie = () => {
-    const {darkMode} = useAuth();
-    const [axiosSecure] = useAxiosSecure();
-    const { data: users = [], refetch } = useQuery(['classes'], async () => {
+  const { darkMode } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+  const { data: users = [], refetch } = useQuery(["classes"], async () => {
     // setLoading(true);
-    const res = await axiosSecure.get('/classes');
+    const res = await axiosSecure.get("/classes");
     // setLoading(false);
     return res.data;
   });
 
-  const instructorUsers = users.filter(user => user.status === "approved")
+  const instructorUsers = users.filter((user) => user.status === "approved");
   const sortedInstructorUsers = instructorUsers.reduce((acc, user) => {
     const existingUser = acc.find((item) => item.nameClass === user.nameClass);
     if (existingUser) {
@@ -26,23 +27,35 @@ const ChartPie = () => {
       acc.push({ ...user }); // Creating a new entry for a unique nameClass
     }
     return acc;
-  }, [])
+  }, []);
 
-//   const data = [
-//     { name: "Group A", value: 400 },
-//     { name: "Group B", value: 300 },
-//     { name: "Group C", value: 300 },
-//     { name: "Group D", value: 200 }
-//   ];
-const data = sortedInstructorUsers.map((user) => {
+  //   const data = [
+  //     { name: "Group A", value: 400 },
+  //     { name: "Group B", value: 300 },
+  //     { name: "Group C", value: 300 },
+  //     { name: "Group D", value: 200 }
+  //   ];
+  const data = sortedInstructorUsers.map((user) => {
     return {
       name: user.nameClass,
       value: user.seats,
     };
-  })
-  
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042","#84cc16","#f43f5e","#8b5cf6","#0e7490","#0f766e","#a78bfa","#f472b6"];
-  
+  });
+
+  const COLORS = [
+    "#0088FE",
+    "#00C49F",
+    "#FFBB28",
+    "#FF8042",
+    "#84cc16",
+    "#f43f5e",
+    "#8b5cf6",
+    "#0e7490",
+    "#0f766e",
+    "#a78bfa",
+    "#f472b6",
+  ];
+
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({
     cx,
@@ -51,15 +64,14 @@ const data = sortedInstructorUsers.map((user) => {
     innerRadius,
     outerRadius,
     percent,
-    index
+    index,
   }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  
+
     return (
       <text
-    
         x={x}
         y={y}
         fill="white"
@@ -72,33 +84,56 @@ const data = sortedInstructorUsers.map((user) => {
     );
   };
   return (
-    <Container>
-        <h2 className={darkMode?"text-neutral-50 text-5xl text-center py-12":"text-5xl text-center py-12"}>Students involvement in courses</h2>
-        <div className="flex flex-col justify-center items-center ml-12">
-        <PieChart width={450} height={450}  >
-         <Tooltip />
-         <Legend verticalAlign="top" height={56}/>
-      <Pie
-        data={data}
-        cx={200}
-        cy={200}
-        labelLine={false}
-        label={renderCustomizedLabel}
-        outerRadius={160}
-        fill="#8884d8"
-        dataKey="value"
-        className="mb-0 cursor-pointer"
+    <div>
+      <h2
+        className={
+          darkMode
+            ? "text-neutral-50 text-5xl text-center my-32"
+            : "text-5xl text-center my-32"
+        }
       >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-  
-      </Pie>
-    </PieChart>
-            <h2 className={darkMode?"text-white mr-10 font-semibold text-lg italic":"text-black mr-10 font-semibold text-lg italic"}>Course Vs No. of Students</h2>
+        Students involvement in courses
+      </h2>
+      <div className="flex flex-col md:flex-row lg:flex-row justify-center gap-28 items-center  bg-[#281836] rounded-2xl py-28 w-full">
+        <div className="rounded-lg md:w-[40rem]">
+          <img className="rounded-lg" src={stat} alt="stat gif" />
+        </div>
+        <div className="flex flex-col justify-center items-center ml-9 md:ml-0 ">
+          <PieChart width={450} height={450}>
+            <Tooltip />
+            <Legend verticalAlign="top" height={64}/>
+            <Pie
+              data={data}
+              cx={200}
+              cy={200}
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={180}
+              fill="#8884d8"
+              dataKey="value"
+              className="mb-0 cursor-pointer"
+            >
+              {data.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+          <h2
+            className={
+              darkMode
+                ? "text-white mr-10 mt-8 font-semibold text-lg italic"
+                : "text-black mr-10 font-semibold text-lg italic"
+            }
+          >
+            Course Vs No. of Students
+          </h2>
+        </div>
+      </div>
     </div>
-    </Container>
   );
-}
+};
 
 export default ChartPie;

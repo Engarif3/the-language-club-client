@@ -21,7 +21,7 @@ const ExtraSection = () => {
   }, []);
   return (
     <div>
-      <h2 className={darkMode?"text-neutral-50 text-5xl text-center py-12":"text-5xl text-center py-12"}>What do we offer?</h2>
+      <h2 className={darkMode?"text-neutral-50 text-5xl text-center my-32":"text-5xl text-center my-32"}>What do we offer?</h2>
       <div className="my-10 md:flex justify-center items-center gap-8">
         <div className="mx-auto text-3xl">
           <Fade cascade damping={0.4}>

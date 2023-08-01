@@ -32,7 +32,7 @@ const PopularInstructors = () => {
   }
   return (
     <div >
-      <h2 className={darkMode?"text-neutral-50 text-5xl text-center py-12":"text-5xl text-center py-12"}>Popular Instructors</h2>
+      <h2 className={darkMode?"text-neutral-50 text-5xl text-center my-32":"text-5xl text-center my-32"}>Popular Instructors</h2>
       <div className='grid md:grid-cols-4 gap-8'>
         {sortedUsers.slice(0, 6).map((item) => (
           <PopularInstructor key={item._id} item={item} />
