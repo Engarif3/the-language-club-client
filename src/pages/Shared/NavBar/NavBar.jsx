@@ -85,14 +85,14 @@ const NavBar = () => {
           {user && (
             <ul className="md:ml-6 lg:ml-6 text-red-600 font-semibold">
               {isAdmin ? (
-                  <DashboardButton url={"/dashboard/adminhome"}></DashboardButton>
+                  <DashboardButton url={"/dashboard/home"}></DashboardButton>
                   
                
               ) : isInstructor ? (
-                <DashboardButton url={"/dashboard/instructorhome"}></DashboardButton>
+                <DashboardButton url={"/dashboard/home"}></DashboardButton>
                 
               ) : (
-                <DashboardButton url={"/dashboard/userhome"}></DashboardButton>
+                <DashboardButton url={"/dashboard/home"}></DashboardButton>
                
               )}
             </ul>

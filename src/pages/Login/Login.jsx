@@ -21,6 +21,8 @@ const Login = () => {
         const user = result.user;
         Swal.fire({
           title: 'Login Successful.',
+          showConfirmButton: false,
+          timer: 1500,
           showClass: {
             popup: 'animate__animated animate__fadeInDown'
           },

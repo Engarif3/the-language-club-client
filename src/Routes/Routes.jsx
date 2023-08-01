@@ -12,20 +12,17 @@ import ErrorPage from "../pages/Errorpage/ErrorPage";
 import Instructors from "../pages/Instructors/Instructors";
 import Courses from "../pages/Courses/Courses";
 import AddClass from "../pages/Dashboard/InstructorDashboard/AddClass";
-import InstructorHome from "../pages/Dashboard/InstructorDashboard/InstructorHome";
 import MyClass from "../pages/Dashboard/InstructorDashboard/MyClass";
 import EnrolledStudents from "../pages/Dashboard/InstructorDashboard/EnrolledStudents";
 import Feedback from "../pages/Dashboard/InstructorDashboard/Feedback";
-import AdminHome from "../pages/Dashboard/AdminDashboard/AdminHome";
 import ManageClass from "../pages/Dashboard/AdminDashboard/ManageClass";
 import ManageUsers from "../pages/Dashboard/AdminDashboard/ManageUsers";
-import UserHome from "../pages/Dashboard/UserDashboard/UserHome";
 import MySelectedClasses from "../pages/Dashboard/UserDashboard/MySelectedClasses";
 import MyEnrolledClasses from "../pages/Dashboard/UserDashboard/MyEnrolledClasses";
 import PaymentHistory from "../pages/Dashboard/UserDashboard/PaymentHistory";
 import UpdateClass from "../pages/Dashboard/InstructorDashboard/UpdateClass";
 import Appointment from "../pages/Appointment/Appointment";
-import { userId } from "../Api/usersId";
+import DashboardHome from "../Layout/DashboardHome";
 
 
 
@@ -68,11 +65,13 @@ import { userId } from "../Api/usersId";
       path: 'dashboard',
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>, 
       children: [
-        // student routes
         {
-          path: 'userhome',
-          element: <UserHome></UserHome>
+          path: 'home',
+          element: <DashboardHome></DashboardHome>
         },
+
+
+        // student routes
         {
           path: 'my-selected-classes',
           element: <MySelectedClasses></MySelectedClasses>
@@ -93,10 +92,6 @@ import { userId } from "../Api/usersId";
         
         //Instructor routes
         {
-          path: 'instructorhome',
-          element: <InstructorHome></InstructorHome>
-        },
-        {
           path: 'addclass',
           element: <AddClass></AddClass>
         },
@@ -116,12 +111,9 @@ import { userId } from "../Api/usersId";
           path: 'update-class/:id',
           element: <UpdateClass></UpdateClass>
         },
+
       
         // admin routes
-        {
-           path: 'adminhome',
-           element: <AdminHome></AdminHome>
-        },
         {
           path: 'manage-class',
           element: <ManageClass></ManageClass>
