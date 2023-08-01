@@ -11,20 +11,21 @@ import { Helmet } from "react-helmet-async";
 
 const images =[img6,img4, img1, img3, img2]
 
-const Banner =()=> {
+const Banner = () => {
   return (
     <div className="mt-4">
-       <Helmet>
-                <title>The Language Club | Home</title>
-        </Helmet>
+      <Helmet>
+        <title>The Language Club | Home</title>
+      </Helmet>
       <Carousel useKeyboardArrows={true} className="text-center">
-          {images.map((URL, index) => (
-          <div className="slide h-full md:h-[800px] ">
-            <img className="h-full rounded-lg" alt="banner_image" src={URL} key={index} />
+        {images.map((URL, index) => (
+          <div className="slide h-full md:h-[800px]" key={index}>
+            <img className="h-full rounded-lg" alt="banner_image" src={URL} />
           </div>
         ))}
       </Carousel>
     </div>
   );
-}
+};
+
 export default Banner;

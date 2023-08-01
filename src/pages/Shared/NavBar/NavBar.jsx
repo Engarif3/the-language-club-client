@@ -116,9 +116,9 @@ const NavBar = () => {
         }
          
         {!user ? <Link to="/login" >
-          <a className={darkMode?"btn btn-warning btn-sm": "btn btn-outline btn-sm"}>Login</a>
+          <span className={darkMode?"btn btn-warning btn-sm": "btn btn-outline btn-sm"}>Login</span>
         </Link>:<Link onClick={handleLogOut}>
-          <a className={darkMode?"btn btn-warning btn-sm": "btn btn-outline btn-sm"}>Logout</a>
+          <span className={darkMode?"btn btn-warning btn-sm": "btn btn-outline btn-sm"}>Logout</span>
         </Link>}
         
        </div>
