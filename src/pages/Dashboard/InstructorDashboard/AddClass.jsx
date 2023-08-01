@@ -49,14 +49,14 @@ const {user} = useAuth();
   };
 
   return (
-    <div>
-      <div className="hero min-h-screen   my-8">
-        <div className="card w-full p-0 shadow-2xl bg-base-100">
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body mt-0">
-            <h2 className="text-xl text-center">Add A Course</h2>
-            <div className="form-control -mb-8">
+    <div className='md:w-10/12 mx-auto'>
+      <div className="  my-8 flex justify-center items-center w-7/12 md:w-full px-4">
+        <div className=" shadow-2xl bg-base-100  w-full md:mx-0 rounded-lg ">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body py-0 my-8">
+            <h2 className="text-xl text-center text-indigo-800 mb-2">Add A Course</h2>
+            <div className="form-control py-0 -my-8">
               <label className="label">
-                <span className="label-text">Course name</span>
+                <span className="label-text italic">Course name</span>
               </label>
               <input
                 type="text"
@@ -64,13 +64,13 @@ const {user} = useAuth();
                 placeholder="Course Name"
                 className="input input-bordered"
               />
-              {errors.className && (
-                <span className="text-red-600">Course name is required</span>
+              {errors.nameClass && (
+                <span className="text-red-600 text-sm">Course name is required</span>
               )}
             </div>
             <div className="form-control -mb-8">
               <label className="label">
-                <span className="label-text">Course Image</span>
+                <span className="label-text italic">Course Image</span>
               </label>
               <input
                 type="text"
@@ -79,12 +79,12 @@ const {user} = useAuth();
                 className="input input-bordered"
               />
               {errors.classImage && (
-                <span className="text-red-600">Course image is required</span>
+                <span className="text-red-600 text-sm">Course image is required</span>
               )}
             </div>
             <div className="form-control -mb-8">
               <label className="label">
-                <span className="label-text">Instructor name</span>
+                <span className="label-text italic">Instructor name</span>
               </label>
               <input
                 type="text"
@@ -94,12 +94,12 @@ const {user} = useAuth();
                 className="input input-bordered"
               />
               {errors.instructorName && (
-                <span className="text-red-600">Name is required</span>
+                <span className="text-red-600 text-sm">Name is required</span>
               )}
             </div>
             <div className="form-control -mb-8">
               <label className="label">
-                <span className="label-text">Instructor email</span>
+                <span className="label-text italic">Instructor email</span>
               </label>
               <input
                 type="email"
@@ -109,12 +109,12 @@ const {user} = useAuth();
                 className="input input-bordered"
               />
               {errors.instructorEmail && (
-                <span className="text-red-600">Email is required</span>
+                <span className="text-red-600 text-sm">Email is required</span>
               )}
             </div>
             <div className="form-control -mb-8">
               <label className="label">
-                <span className="label-text">Available seats</span>
+                <span className="label-text italic">Available seats</span>
               </label>
               <input
                 type="text"
@@ -123,12 +123,12 @@ const {user} = useAuth();
                 className="input input-bordered"
               />
               {errors.seats && (
-                <span className="text-red-600">Available seats is required</span>
+                <span className="text-red-600 text-sm">Available seats is required</span>
               )}
             </div>
             <div className="form-control -mb-8">
               <label className="label">
-                <span className="label-text">Price</span>
+                <span className="label-text italic">Price</span>
               </label>
               <input
                 type="text"
@@ -137,14 +137,14 @@ const {user} = useAuth();
                 className="input input-bordered"
               />
               {errors.price && (
-                <span className="text-red-600">Price is required</span>
+                <span className="text-red-600 text-sm">Price is required</span>
               )}
             </div>
-            <div className="form-control mt-2">
+            <div className="form-control mt-4">
               <input
                 className="btn btn-primary"
                 type="submit"
-                value="Add Class"
+                value="Add Course"
               />
             </div>
           </form>
