@@ -3,6 +3,7 @@ import { Fade } from "react-awesome-reveal";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import pointer from "../../assets/home/pointer.gif";
+import pointer1 from "../../assets/home/rotate.gif";
 import img1 from "../../assets/home/lang1.jpg";
 import img2 from "../../assets/home/lang2.jpg";
 import img3 from "../../assets/home/lang3.jpg";
@@ -20,17 +21,18 @@ const ExtraSection = () => {
     });
   }, []);
   return (
-    <div>
+    <div className="overflow-hidden">
       <h2 className={darkMode?"text-neutral-50 text-5xl text-center my-32":"text-5xl text-center my-32"}>What do we offer?</h2>
       <div className="my-10 md:flex justify-center items-center gap-8">
-        <div className="mx-auto text-3xl">
+        <div className="mx-auto text-3xl ">
           <Fade cascade damping={0.4}>
             <p className="text-orange-600">We Offer...</p>
             <p className="ml-8 text-blue-800">More than 15 Foreign Languages...</p>
             <p className="ml-16 text-fuchsia-700">Join Our Club...</p>
             <p className="ml-24 text-slate-600">Explore the World of Language...</p>
-            <div className=" flex justify-end">
-            <img className="w-16 " src={pointer} alt="" />
+            <div className=" flex justify-center  md:justify-end lg:justify-end">
+            <img className="w-16 hidden md:block " src={pointer} alt="" />
+            <img className="w-16 mb-8 md:mb-0 lg:mb-0  block md:hidden lg:hidden " src={pointer1} alt="" />
             </div>
           </Fade>
         </div>

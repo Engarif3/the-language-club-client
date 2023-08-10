@@ -11,14 +11,15 @@ const Main = () => {
  
   return (
    
-      <div className={darkMode? "dark":""}>
-      <div className="dark:bg-gray-800">
+      // <div className={darkMode? "dark":""}>
+      // <div className="dark:bg-gray-800">
+      <div className={darkMode? "bg-gray-800":""}>
       <NavBar></NavBar>
       <Container>
         <Outlet></Outlet>
       </Container>
       <Footer></Footer>
-      </div>
+  
     </div>
   
   );
