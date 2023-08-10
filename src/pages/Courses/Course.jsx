@@ -7,13 +7,13 @@ import useInstructor from '../../hooks/useInstructor';
 
 
 const Course = ({ course }) => {
+  const {darkMode} = useAuth();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const { user } = useAuth();
   const navigate = useNavigate();
-
   const { classImage, nameClass, instructorName, email, seats, price } = course;
-  // console.log(instructorEmail)
+
 
   const handleSelect = () => {
     if (user) {
@@ -53,8 +53,8 @@ const Course = ({ course }) => {
   };
 
   return (
-      <div>
-        <div className="card bg-base-100 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300">
+
+        <div className={darkMode? "card bg-[#2D2D2D] text-white border-b-4 border-red-600 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300":"card bg-base-100 border-b-4 border-gray-600 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300"}>
           <figure>
             <img className="h-64 w-full rounded-t-lg object-fit" src={classImage} alt="Instructor Image" />
           </figure>
@@ -73,7 +73,6 @@ const Course = ({ course }) => {
             </div>
           </div>
         </div>
-      </div>
 
   );
 };

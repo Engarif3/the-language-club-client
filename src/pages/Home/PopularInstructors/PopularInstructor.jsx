@@ -17,8 +17,6 @@ const PopularInstructor = ({item}) => {
         setModal(false)
   }
   return (
-    <div>
-       
       <div div className={darkMode? "card bg-[#2D2D2D] text-white border-b-4 border-red-600 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300":"card bg-base-100 border-b-4 border-gray-600 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl duration-300"}>
         <figure>
           <img
@@ -34,9 +32,8 @@ const PopularInstructor = ({item}) => {
         </div>
          <IoIosArrowDropright onClick={()=>setModal(true)} size={32}  className="absolute bottom-6 right-8 text-neutral-400 cursor-pointer hover:text-slate-700 hover:scale-105"></IoIosArrowDropright>
 
+        <InstructorModal  isOpen={modal} closeModal={closeModal}  item={item}></InstructorModal>  
       </div>
-      <InstructorModal  isOpen={modal} closeModal={closeModal}  item={item}></InstructorModal>
-    </div>
   );
 };
 
