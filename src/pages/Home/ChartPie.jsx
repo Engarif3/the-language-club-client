@@ -82,7 +82,7 @@ const ChartPie = () => {
     );
   };
   return (
-    <div>
+    <div className="overflow-hidden">
       <h2
         className={
           darkMode

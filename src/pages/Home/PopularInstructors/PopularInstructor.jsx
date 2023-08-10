@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import {BsFillArrowRightCircleFill} from "react-icons/bs";
 import {IoIosArrowDropright} from "react-icons/io";
 import InstructorModal from "../../../components/Modal/InstructorModal";
 import { Link, useNavigate} from "react-router-dom";
