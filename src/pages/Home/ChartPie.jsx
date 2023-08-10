@@ -99,14 +99,14 @@ const ChartPie = () => {
         <div className="flex flex-col justify-center items-center ml-16 md:ml-0 ">
           <PieChart width={480} height={480}>
             <Tooltip />
-            <Legend verticalAlign="top" height={90}/>
+            <Legend verticalAlign="top" height={90} width={380}/>
             <Pie
               data={data}
               cx={200}
               cy={200}
               labelLine={false}
               label={renderCustomizedLabel}
-              outerRadius={180}
+              outerRadius={175}
               fill="#8884d8"
               dataKey="value"
               className="mb-0 cursor-pointer"
