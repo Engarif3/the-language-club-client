@@ -41,12 +41,12 @@ The frontend of The Language Club is built using React.js, a powerful JavaScript
     ```bash
     git clone <Repo URL>
     cd <repo-folder>
-    ```
+```
 
 **2. Install dependencies:**
-    ```bash
-    npm install
-    ```
+```bash
+npm install
+```
 
 **3. Start the frontend development server:**
     ```bash
@@ -56,6 +56,7 @@ The frontend of The Language Club is built using React.js, a powerful JavaScript
 **4. Access the frontend locally:**
     http://localhost:3000
 
+## 📞 Contact
 
 For any inquiries or issues, feel free to reach out:
 
