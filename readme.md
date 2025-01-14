@@ -48,12 +48,12 @@ npm install
 ```
 
 **3. Start the frontend development server:**
-    ```bash
-    npm start
-    ```
+```bash
+npm start
+```
 
 **4. Access the frontend locally:**
-    http://localhost:3000
+    http://localhost:5137
 
 ## 📞 Contact
 
